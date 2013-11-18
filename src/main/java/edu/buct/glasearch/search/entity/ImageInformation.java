@@ -2,6 +2,7 @@ package edu.buct.glasearch.search.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import edu.buct.glasearch.user.entity.IdEntity;
 
@@ -14,10 +15,15 @@ public class ImageInformation extends IdEntity implements net.semanticmetadata.l
 	
 	private String location;
 	
+	private String lat;
+	
+	private String lng;
+	
 	private String tags;
 	
 	private String fileName;
 	
+	@Transient
 	private byte[] buffer;
 
 	public String getTitle() {
@@ -26,14 +32,6 @@ public class ImageInformation extends IdEntity implements net.semanticmetadata.l
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
 	}
 
 	public String getTags() {
@@ -58,5 +56,29 @@ public class ImageInformation extends IdEntity implements net.semanticmetadata.l
 
 	public void setBuffer(byte[] buffer) {
 		this.buffer = buffer;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
 	}
 }

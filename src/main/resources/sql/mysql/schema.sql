@@ -7,7 +7,7 @@ create table image_info (
 	title varchar(255) not null,
 	location varchar(255) not null,
 	tags varchar(255) not null,
-	fileName varchar(255) not null,
+	file_name varchar(255) not null,
 	update_date timestamp not null,
 	primary key (id)
 ) engine=InnoDB;

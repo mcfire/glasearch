@@ -30,13 +30,6 @@
 
 package edu.buct.glasearch.search.service.indexing;
 
-import com.drew.imaging.jpeg.JpegProcessingException;
-import com.drew.metadata.Metadata;
-import com.drew.metadata.exif.ExifReader;
-import net.semanticmetadata.lire.DocumentBuilder;
-import org.apache.lucene.document.Document;
-
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -47,6 +40,18 @@ import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.imageio.ImageIO;
+
+import net.semanticmetadata.lire.DocumentBuilder;
+
+import org.apache.lucene.document.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.drew.imaging.jpeg.JpegProcessingException;
+import com.drew.metadata.Metadata;
+import com.drew.metadata.exif.ExifReader;
+
 /**
  * ...
  * Date: 10.06.2008
@@ -56,6 +61,9 @@ import java.util.concurrent.Executors;
  */
 public class ParallelIndexer implements Runnable {
     // Vectors are already synchronized, so that's the cheap solution.
+	
+	private static Logger logger = LoggerFactory.getLogger(ParallelIndexer.class);
+	
     Vector<String> imageFiles;
     private int NUMBER_OF_SYNC_THREADS = 8;
     Hashtable<String, Boolean> indexThreads = new Hashtable<String, Boolean>(8);
@@ -122,7 +130,7 @@ public class ParallelIndexer implements Runnable {
             countImagesOut++;
             return imageFiles.remove(0);
         } else {
-            System.out.println("countImagesOut = " + countImagesOut);
+            logger.info("countImagesOut = " + countImagesOut);
             return null;
         }
     }
@@ -162,13 +170,13 @@ public class ParallelIndexer implements Runnable {
 //                    byte[] thumb = ((ExifDirectory) metadata.getDirectory(ExifDirectory.class)).getThumbnailData();
 //                    if (thumb != null) image = ImageIO.read(new ByteArrayInputStream(thumb));
 //                    System.out.print("Read from thumbnail data ... ");
-//                    System.out.println(image.getWidth() + " x " + image.getHeight());
+//                    logger.info(image.getWidth() + " x " + image.getHeight());
                 } catch (JpegProcessingException e) {
-                    System.err.println("Could not extract EXIF data for " + path);
-                    System.err.println("\t" + e.getMessage());
+                    logger.error("Could not extract EXIF data for " + path);
+                    logger.error("\t" + e.getMessage());
                 } catch (Exception e) {
-                    System.err.println("Could not extract EXIF data for " + path);
-                    System.err.println("\t" + e.getMessage());
+                    logger.error("Could not extract EXIF data for " + path);
+                    logger.error("\t" + e.getMessage());
                 }
                 jpegFile.close();    // patch by Simon Micollier
             }
@@ -177,7 +185,7 @@ public class ParallelIndexer implements Runnable {
                 try {
                     image = ImageIO.read(new File(path));
                 } catch (Exception e) {
-                    System.err.println("Error reading file " + path + "\n\t" + e.getMessage());
+                    logger.error("Error reading file " + path + "\n\t" + e.getMessage());
                     e.printStackTrace();
                 }
             return image;

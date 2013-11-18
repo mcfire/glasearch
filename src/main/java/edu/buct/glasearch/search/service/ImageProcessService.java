@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
@@ -19,16 +17,16 @@ import net.semanticmetadata.lire.impl.ChainedDocumentBuilder;
 import net.semanticmetadata.lire.impl.VisualWordsImageSearcher;
 import net.semanticmetadata.lire.indexing.parallel.ImageInfo;
 import net.semanticmetadata.lire.indexing.parallel.ParallelIndexer;
-import net.semanticmetadata.lire.indexing.parallel.WorkItem;
 
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.store.FSDirectory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.buct.glasearch.search.entity.ImageInformation;
 import edu.buct.glasearch.search.repository.ImageInformationDao;
 import edu.buct.glasearch.search.service.indexing.MetadataBuilder;
 
@@ -38,6 +36,8 @@ import edu.buct.glasearch.search.service.indexing.MetadataBuilder;
 @Transactional
 public class ImageProcessService {
 	
+	private static Logger logger = LoggerFactory.getLogger(ImageProcessService.class);
+	
 	@Autowired
 	private ImageInformationDao imageInfoDao;
 	
@@ -46,6 +46,14 @@ public class ImageProcessService {
 	
     int builderIdx = 1;
     int numResults = 50;
+    
+    public String getImagePath() {
+    	return context.getRealPath("images-data");
+    }
+    
+    public String getIndexPath() {
+    	return context.getRealPath("search-index");
+    }
 
 	public void indexImages() {
     	
@@ -57,7 +65,7 @@ public class ImageProcessService {
 
         ParallelIndexer pin =
                 new net.semanticmetadata.lire.indexing.parallel.ParallelIndexer(
-                		8, getIndexPath(), imageInfoList.iterator()){
+                		8, getImagePath(), getIndexPath(), imageInfoList.iterator()){
                     @Override
                     public void addBuilders(ChainedDocumentBuilder builder) {
                         builder.addBuilder(new MetadataBuilder());
@@ -71,7 +79,7 @@ public class ImageProcessService {
 		
         IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(getIndexPath())));
         int numDocs = reader.numDocs();
-        System.out.println("numDocs = " + numDocs);
+        logger.info("numDocs = " + numDocs);
         ImageSearcher searcher = getSearcher();
         ImageSearchHits hits = searcher.search(ImageIO.read(new FileInputStream(imageFileName)), reader);
         reader.close();
@@ -132,12 +140,4 @@ public class ImageProcessService {
         });
         t.start();
 	}
-    
-    public String getImagePath(String imageFile) {
-    	return context.getRealPath("upload-images/" + imageFile);
-    }
-    
-    public String getIndexPath() {
-    	return context.getRealPath("search-index");
-    }
 }
