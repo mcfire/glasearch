@@ -172,46 +172,6 @@ public class ImageFunctions {
     }
 
     /**
-     * uses LIRe to index BufferedImages within the param path. but only if
-     * an index does not exist or the user forced the indexing process
-     *
-     * @param path the path to the bufferedImages which will be indexed
-     * @return the number of indexed images
-     */
-    public int imageIndexing(String path, boolean force) {
-        int count = 0;
-        IndexReader ir;
-        boolean hasIndex = false;
-
-        try {
-            hasIndex = DirectoryReader.indexExists(FSDirectory.open(new File(path)));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        if (force || (hasIndex == false)) {
-            try {
-                java.util.ArrayList<java.lang.String> images = getAllImages(new java.io.File(path), true);
-                IndexWriter iw = LuceneUtils.createIndexWriter(path, true);
-//                IndexWriter iw = new IndexWriter(FSDirectory.open(new File(path)), new SimpleAnalyzer(), true, IndexWriter.MaxFieldLength.UNLIMITED);
-                DocumentBuilder builder = DocumentBuilderFactory.getFullDocumentBuilder();
-                for (String identifier : images) {
-                    Document doc = builder.createDocument(new FileInputStream(identifier), identifier);
-                    iw.addDocument(doc);
-                    count++;
-                }
-                iw.commit();
-                iw.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-//	            System.out.println(ex.toString());
-            }
-        }
-        return count;
-    }
-
-    /**
      * this method returns all images from a directory in an arrayList
      *
      * @param directory                 the directory where all images should be found

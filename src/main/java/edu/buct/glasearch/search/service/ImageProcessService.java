@@ -4,6 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
@@ -18,6 +20,7 @@ import net.semanticmetadata.lire.impl.VisualWordsImageSearcher;
 import net.semanticmetadata.lire.indexing.parallel.ImageInfo;
 import net.semanticmetadata.lire.indexing.parallel.ParallelIndexer;
 
+import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.store.FSDirectory;
@@ -27,6 +30,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.buct.glasearch.search.entity.ImageInformation;
 import edu.buct.glasearch.search.repository.ImageInformationDao;
 import edu.buct.glasearch.search.service.indexing.MetadataBuilder;
 
@@ -48,6 +52,10 @@ public class ImageProcessService {
     int numResults = 50;
     
     public ImageProcessService() {
+    }
+    
+    public ImageInformation load(Long id) {
+    	return imageInfoDao.findOne(id);
     }
     
     public String getImagePath() {
@@ -78,7 +86,7 @@ public class ImageProcessService {
         t.start();
 	}
 	
-	public ImageSearchHits search(ImageInfo imageInfo) throws IOException {
+	public List<ImageInformation> search(ImageInfo imageInfo) throws IOException {
 		
         IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(getIndexPath())));
         int numDocs = reader.numDocs();
@@ -88,7 +96,31 @@ public class ImageProcessService {
         ImageSearchHits hits = searcher.search(
         		ImageIO.read(new ByteArrayInputStream(imageInfo.getBuffer())), reader);
         reader.close();
-        return hits;
+        
+        List<ImageInformation> imageList = new ArrayList<ImageInformation>();
+		if (hits.length() > 0) {
+			for (int i = 0;i < hits.length();i++) {
+				Document doc = hits.doc(i);
+				
+				ImageInformation image = new ImageInformation();
+
+				try {
+					image.setId(doc.getField(DocumentBuilder.FIELD_NAME_DBID).numericValue().longValue());
+					image.setTitle(doc.get(DocumentBuilder.FIELD_NAME_TITLE));
+					image.setLocation(doc.get(DocumentBuilder.FIELD_NAME_LOCATION));
+					image.setLng(doc.get(DocumentBuilder.FIELD_NAME_LNG));
+					image.setLat(doc.get(DocumentBuilder.FIELD_NAME_LAT));
+					image.setTags(doc.get(DocumentBuilder.FIELD_NAME_TAGS));
+				} catch (Exception e) {
+					e.printStackTrace();
+					continue;
+				}
+				
+				imageList.add(image);
+			}
+		}
+		
+        return imageList;
 	}
 
     private ImageSearcher getSearcher() {

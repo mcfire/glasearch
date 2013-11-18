@@ -1,9 +1,14 @@
 package edu.buct.glasearch.search.web;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import net.semanticmetadata.lire.DocumentBuilder;
 import net.semanticmetadata.lire.ImageSearchHits;
 
 import org.apache.lucene.document.Document;
@@ -13,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.buct.glasearch.search.entity.ImageInformation;
@@ -44,23 +50,25 @@ public class ImageSearchController {
 			Model model) throws IOException {
 		
 		imageInfo.setBuffer(file.getBytes());
-		ImageSearchHits result = imageProcessService.search(imageInfo);
-		
-		List<ImageInformation> imageList = new ArrayList<ImageInformation>();
-		if (result.length() > 0) {
-			for (int i = 0;i < result.length();i++) {
-				Document doc = result.doc(i);
-				
-				ImageInformation image = new ImageInformation();
-				image.setTitle(doc.get("title"));
-				image.setLocation(doc.get("location"));
-				image.setTags(doc.get("tags"));
-				
-				imageList.add(image);
-			}
-		}
+		List<ImageInformation> imageList = imageProcessService.search(imageInfo);
 		
 		model.addAttribute("result", imageList);
 		return "search/main";
+	}
+	
+	@RequestMapping("image")
+	@ResponseBody
+	public byte[] image(Long id, Model model, HttpServletResponse response) throws IOException {
+		ImageInformation image = this.imageProcessService.load(id);
+		String imagePath = imageProcessService.getImagePath() + File.separator + image.getFileName();
+		
+		File imageFile = new File(imagePath);
+		byte[] bytes = new byte[(int)imageFile.length()];
+		FileInputStream fs = new FileInputStream(imagePath);
+		fs.read(bytes);
+		fs.close();
+		
+		response.setContentType("image/jpeg");
+        return bytes;
 	}
 }

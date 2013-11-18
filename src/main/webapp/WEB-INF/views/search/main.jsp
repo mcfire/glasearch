@@ -16,11 +16,11 @@
 				<input id="index-btn" class="btn" type="button" value="建立图像索引"/>
 			</div>
 			<div class="control-group">
-				图像文件：<input type="file" class="span2" name="file" />
-				关键字：<input type="text" class="span2" name="title" />
-				位置：<input type="text" class="span2" name="location" />
-				经度：<input type="text" class="span1" name="lng" />
-				纬度：<input type="text" class="span1" name="lat" />
+				图像文件：<input type="file" class="span2" name="file" value="${file}"/>
+				关键字：<input type="text" class="span2" name="title" value="${title}" />
+				位置：<input type="text" class="span2" name="location" value="${location}" />
+				经度：<input type="text" class="span1" name="lng" value="${lng}" />
+				纬度：<input type="text" class="span1" name="lat" value="${lat}" />
 				<input id="search-btn" class="btn" type="submit" value="搜索图像"/>
 			</div>
 			<c:if test="${fn:length(result) > 0 }">
@@ -29,7 +29,11 @@
 				<tbody>
 				<c:forEach items="${result}" var="r">
 					<tr>
-						<td></td>
+						<td>
+							<a href="image?id=${r.id}" target="_blank" class="image-result">
+								<img alt="" src="image?id=${r.id}" >
+							</a>
+						</td>
 						<td>${r.title}</td>
 						<td>${r.tags}</td>
 						<td>${r.location}</td>

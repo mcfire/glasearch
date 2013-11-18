@@ -41,24 +41,13 @@
 
 package edu.buct.glasearch.search.service.indexing;
 
-import com.drew.imaging.jpeg.JpegProcessingException;
-import com.drew.metadata.Directory;
-import com.drew.metadata.Metadata;
-import com.drew.metadata.Tag;
-import com.drew.metadata.exif.ExifReader;
-import com.drew.metadata.iptc.IptcReader;
+import java.awt.image.BufferedImage;
+
 import net.semanticmetadata.lire.DocumentBuilderFactory;
 import net.semanticmetadata.lire.impl.ChainedDocumentBuilder;
 import net.semanticmetadata.lire.impl.SurfDocumentBuilder;
-import net.semanticmetadata.lire.utils.ImageUtils;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.TextField;
 
-import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Iterator;
+import org.apache.lucene.document.Field;
 
 /**
  * Created by: Mathias Lux, mathias@juggle.at
@@ -86,37 +75,7 @@ public class MetadataBuilder extends ChainedDocumentBuilder {
         addBuilder(DocumentBuilderFactory.getPHOGDocumentBuilder());
         addBuilder(new SurfDocumentBuilder());
     }
-
-    @Override
-    public Document createDocument(BufferedImage bufferedImage, String s) throws FileNotFoundException {
-        Document d = super.createDocument(ImageUtils.createWorkingCopy(bufferedImage), s);
-        // extract available metadata:
-        Metadata metadata = new Metadata();
-        try {
-            new ExifReader(new FileInputStream(s)).extract(metadata);
-            new IptcReader(new FileInputStream(s)).extract(metadata);
-            // add metadata to document:
-            Iterator i = metadata.getDirectoryIterator();
-            while (i.hasNext()) {
-                Directory dir = (Directory) i.next();
-                String prefix = dir.getName();
-                Iterator ti = dir.getTagIterator();
-                while (ti.hasNext()) {
-                    Tag tag = (Tag) ti.next();
-                    // System.out.println(prefix+"-"+tag.getTagName()+" -> " + dir.getString(tag.getTagType()));
-                    // add to document:
-                    d.add(new TextField(prefix + "-" + tag.getTagName(), dir.getString(tag.getTagType()), Field.Store.YES));
-                }
-            }
-        } catch (JpegProcessingException e) {
-            System.err.println("Error reading EXIF & IPTC metadata from image file.");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return d;
-    }
-
+    
     @Override
     public Field[] createDescriptorFields(BufferedImage image) {
         return super.createDescriptorFields(image);
