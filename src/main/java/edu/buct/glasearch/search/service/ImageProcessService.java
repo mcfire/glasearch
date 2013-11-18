@@ -1,7 +1,7 @@
 package edu.buct.glasearch.search.service;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
@@ -47,6 +47,9 @@ public class ImageProcessService {
     int builderIdx = 1;
     int numResults = 50;
     
+    public ImageProcessService() {
+    }
+    
     public String getImagePath() {
     	return context.getRealPath("images-data");
     }
@@ -75,13 +78,15 @@ public class ImageProcessService {
         t.start();
 	}
 	
-	public ImageSearchHits findImage(String imageFileName) throws IOException {
+	public ImageSearchHits search(ImageInfo imageInfo) throws IOException {
 		
         IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(getIndexPath())));
         int numDocs = reader.numDocs();
         logger.info("numDocs = " + numDocs);
+
         ImageSearcher searcher = getSearcher();
-        ImageSearchHits hits = searcher.search(ImageIO.read(new FileInputStream(imageFileName)), reader);
+        ImageSearchHits hits = searcher.search(
+        		ImageIO.read(new ByteArrayInputStream(imageInfo.getBuffer())), reader);
         reader.close();
         return hits;
 	}
