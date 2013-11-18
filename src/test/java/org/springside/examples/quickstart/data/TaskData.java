@@ -1,8 +1,9 @@
 package org.springside.examples.quickstart.data;
 
-import org.springside.examples.quickstart.entity.Task;
-import org.springside.examples.quickstart.entity.User;
 import org.springside.modules.test.data.RandomData;
+
+import edu.buct.glasearch.user.entity.Task;
+import edu.buct.glasearch.user.entity.User;
 
 /**
  * Task相关实体测试数据生成.

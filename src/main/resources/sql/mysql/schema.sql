@@ -1,5 +1,16 @@
 drop table if exists ss_task;
 drop table if exists ss_user;
+drop table if exists image_info;
+
+create table image_info (
+	id bigint auto_increment,
+	title varchar(255) not null,
+	location varchar(255) not null,
+	tags varchar(255) not null,
+	fileName varchar(255) not null,
+	update_date timestamp not null,
+	primary key (id)
+) engine=InnoDB;
 
 create table ss_task (
 	id bigint auto_increment,

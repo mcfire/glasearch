@@ -1,7 +1,8 @@
 package org.springside.examples.quickstart.data;
 
-import org.springside.examples.quickstart.entity.User;
 import org.springside.modules.test.data.RandomData;
+
+import edu.buct.glasearch.user.entity.User;
 
 public class UserData {
 

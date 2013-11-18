@@ -11,13 +11,15 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springside.examples.quickstart.data.UserData;
-import org.springside.examples.quickstart.entity.User;
-import org.springside.examples.quickstart.repository.TaskDao;
-import org.springside.examples.quickstart.repository.UserDao;
-import org.springside.examples.quickstart.service.ServiceException;
-import org.springside.examples.quickstart.service.account.ShiroDbRealm.ShiroUser;
 import org.springside.modules.test.security.shiro.ShiroTestUtils;
 import org.springside.modules.utils.DateProvider.MockedDateProvider;
+
+import edu.buct.glasearch.user.entity.User;
+import edu.buct.glasearch.user.repository.TaskDao;
+import edu.buct.glasearch.user.repository.UserDao;
+import edu.buct.glasearch.user.service.ServiceException;
+import edu.buct.glasearch.user.service.account.AccountService;
+import edu.buct.glasearch.user.service.account.ShiroDbRealm.ShiroUser;
 
 /**
  * AccountService的测试用例, 测试Service层的业务逻辑.

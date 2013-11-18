@@ -8,8 +8,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.ContextConfiguration;
-import org.springside.examples.quickstart.entity.Task;
 import org.springside.modules.test.spring.SpringTransactionalTestCase;
+
+import edu.buct.glasearch.user.entity.Task;
+import edu.buct.glasearch.user.repository.TaskDao;
 
 @ContextConfiguration(locations = { "/applicationContext.xml" })
 public class TaskDaoTest extends SpringTransactionalTestCase {

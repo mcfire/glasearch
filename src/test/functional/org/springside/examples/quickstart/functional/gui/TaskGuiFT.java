@@ -7,9 +7,10 @@ import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.springside.examples.quickstart.data.TaskData;
-import org.springside.examples.quickstart.entity.Task;
 import org.springside.examples.quickstart.functional.BaseSeleniumTestCase;
 import org.springside.modules.test.category.Smoke;
+
+import edu.buct.glasearch.user.entity.Task;
 
 /**
  * 任务管理的功能测试, 测试页面JavaScript及主要用户故事流程.

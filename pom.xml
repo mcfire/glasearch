@@ -37,11 +37,10 @@
 		<jdbc.driver.groupId>com.h2database</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>h2</jdbc.driver.artifactId>
 		<jdbc.driver.version>${h2.version}</jdbc.driver.version>
-		<!--
-			<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
-			<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
-			<jdbc.driver.version>5.1.22</jdbc.driver.version>
-		-->	
+		
+		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
+		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
+		<jdbc.driver.version>5.1.22</jdbc.driver.version>
 	</properties>
 
 	<prerequisites>
@@ -74,10 +73,36 @@
 	<!-- 依赖项定义 -->
 	<dependencies>
         <dependency>
+        	<groupId>com.drew</groupId>
+			<artifactId>metadata-extractor</artifactId>
+			<version>2.3.1</version>
+        </dependency>
+        <dependency>
         	<groupId>net.semanticmetadata</groupId>
 			<artifactId>lire</artifactId>
 			<version>0.9.4-SNAPSHOT</version>
         </dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers-common</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.2</version>
+		</dependency>		
+		
 		<!-- SPRINGSIDE -->
 		<dependency>
 			<groupId>org.springside</groupId>
