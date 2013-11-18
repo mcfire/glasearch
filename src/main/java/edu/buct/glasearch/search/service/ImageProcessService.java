@@ -17,12 +17,17 @@ import net.semanticmetadata.lire.ImageSearcherFactory;
 import net.semanticmetadata.lire.imageanalysis.bovw.SurfFeatureHistogramBuilder;
 import net.semanticmetadata.lire.impl.ChainedDocumentBuilder;
 import net.semanticmetadata.lire.impl.VisualWordsImageSearcher;
+import net.semanticmetadata.lire.indexing.LireCustomCodec;
 import net.semanticmetadata.lire.indexing.parallel.ImageInfo;
 import net.semanticmetadata.lire.indexing.parallel.ParallelIndexer;
+import net.semanticmetadata.lire.utils.LuceneUtils;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.FSDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,8 +53,8 @@ public class ImageProcessService {
 	@Autowired
 	ServletContext context;
 	
-    int builderIdx = 1;
     int numResults = 50;
+    int method = 2;
     
     public ImageProcessService() {
     }
@@ -64,6 +69,20 @@ public class ImageProcessService {
     
     public String getIndexPath() {
     	return context.getRealPath("search-index");
+    }
+    
+    public void deleteAllIndex() throws IOException {
+    	IndexWriterConfig config = new IndexWriterConfig(LuceneUtils.LUCENE_VERSION, new StandardAnalyzer(LuceneUtils.LUCENE_VERSION));
+        config.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
+        config.setCodec(new LireCustomCodec());
+    	IndexWriter writer = new IndexWriter(FSDirectory.open(new File(getIndexPath())), config);
+    	writer.deleteAll();
+    	writer.close();
+    }
+    
+    public void reindexImages() throws IOException {
+    	this.deleteAllIndex();
+    	this.indexImages();
     }
 
 	public void indexImages() {
@@ -86,7 +105,11 @@ public class ImageProcessService {
         t.start();
 	}
 	
-	public List<ImageInformation> search(ImageInfo imageInfo) throws IOException {
+	public List<ImageInformation> search(ImageInfo imageInfo, Integer method) throws IOException {
+		
+		if (method != null) {
+			this.method = method;
+		}
 		
         IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(getIndexPath())));
         int numDocs = reader.numDocs();
@@ -101,6 +124,7 @@ public class ImageProcessService {
 		if (hits.length() > 0) {
 			for (int i = 0;i < hits.length();i++) {
 				Document doc = hits.doc(i);
+				float distance = hits.score(i);
 				
 				ImageInformation image = new ImageInformation();
 
@@ -111,6 +135,7 @@ public class ImageProcessService {
 					image.setLng(doc.get(DocumentBuilder.FIELD_NAME_LNG));
 					image.setLat(doc.get(DocumentBuilder.FIELD_NAME_LAT));
 					image.setTags(doc.get(DocumentBuilder.FIELD_NAME_TAGS));
+					image.setDistance(distance);
 				} catch (Exception e) {
 					e.printStackTrace();
 					continue;
@@ -126,35 +151,35 @@ public class ImageProcessService {
     private ImageSearcher getSearcher() {
 
         ImageSearcher searcher = ImageSearcherFactory.createColorLayoutImageSearcher(numResults);
-        if (builderIdx == 1) {
+        if (method == 1) {
             searcher = ImageSearcherFactory.createScalableColorImageSearcher(numResults);
-        } else if (builderIdx == 2) {
+        } else if (method == 2) {
             searcher = ImageSearcherFactory.createEdgeHistogramImageSearcher(numResults);
-        } else if (builderIdx == 3) {
+        } else if (method == 3) {
             searcher = ImageSearcherFactory.createAutoColorCorrelogramImageSearcher(numResults);
-        } else if (builderIdx == 4) { // CEDD
+        } else if (method == 4) { // CEDD
             searcher = ImageSearcherFactory.createCEDDImageSearcher(numResults);
-        } else if (builderIdx == 5) { // FCTH
+        } else if (method == 5) { // FCTH
             searcher = ImageSearcherFactory.createFCTHImageSearcher(numResults);
-        } else if (builderIdx == 6) { // JCD
+        } else if (method == 6) { // JCD
             searcher = ImageSearcherFactory.createJCDImageSearcher(numResults);
-        } else if (builderIdx == 7) { // SimpleColorHistogram
+        } else if (method == 7) { // SimpleColorHistogram
             searcher = ImageSearcherFactory.createColorHistogramImageSearcher(numResults);
-        } else if (builderIdx == 8) {
+        } else if (method == 8) {
             searcher = ImageSearcherFactory.createTamuraImageSearcher(numResults);
-        } else if (builderIdx == 9) {
+        } else if (method == 9) {
             searcher = ImageSearcherFactory.createGaborImageSearcher(numResults);
-        } else if (builderIdx == 10) {
+        } else if (method == 10) {
             searcher = ImageSearcherFactory.createJpegCoefficientHistogramImageSearcher(numResults);
-        } else if (builderIdx == 11) {
+        } else if (method == 11) {
             searcher = new VisualWordsImageSearcher(numResults, DocumentBuilder.FIELD_NAME_SURF_VISUAL_WORDS);
-        } else if (builderIdx == 12) {
+        } else if (method == 12) {
             searcher = ImageSearcherFactory.createJointHistogramImageSearcher(numResults);
-        } else if (builderIdx == 13) {
+        } else if (method == 13) {
             searcher = ImageSearcherFactory.createOpponentHistogramSearcher(numResults);
-        } else if (builderIdx == 14) {
+        } else if (method == 14) {
             searcher = ImageSearcherFactory.createLuminanceLayoutImageSearcher(numResults);
-        } else if (builderIdx >= 15) {
+        } else if (method >= 15) {
             searcher = ImageSearcherFactory.createPHOGImageSearcher(numResults);
         }
         return searcher;

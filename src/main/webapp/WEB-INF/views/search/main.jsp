@@ -13,19 +13,42 @@
 		<fieldset>
 			<legend><small>图像搜索管理</small></legend>
 			<div class="form-actions">
-				<input id="index-btn" class="btn" type="button" value="建立图像索引"/>
+				<input id="reindex-btn" class="btn" type="button" value="重新建立图像索引"/>
+				<input id="index-btn" class="btn" type="button" value="增量建立图像索引"/>
 			</div>
 			<div class="control-group">
-				图像文件：<input type="file" class="span2" name="file" value="${file}"/>
-				关键字：<input type="text" class="span2" name="title" value="${title}" />
-				位置：<input type="text" class="span2" name="location" value="${location}" />
+				图像文件：<input type="file" class="span3" name="file" value="${file}"/>
+				关键字：<input type="text" class="span3" name="title" value="${title}" />
+			</div>
+			<div class="control-group">
+				位置：<input type="text" class="span3" name="location" value="${location}" />
 				经度：<input type="text" class="span1" name="lng" value="${lng}" />
-				纬度：<input type="text" class="span1" name="lat" value="${lat}" />
-				<input id="search-btn" class="btn" type="submit" value="搜索图像"/>
+				纬度：<input type="text" class="span1" name="lat" value="${lat}" /><br/>
+			</div>
+			<div class="control-group">
+				检索方法：
+				<select name="method">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+				</select>
+				<input id="search-btn" class="btn btn-primary" type="submit" value="搜索图像"/>
 			</div>
 			<c:if test="${fn:length(result) > 0 }">
 			<table id="contentTable" class="table table-striped table-bordered table-condensed">
-				<thead><tr><th>图像</th><th>标题</th><th>标签<th>位置</th></tr></thead>
+				<thead><tr><th>图像</th><th>相似距离</th><th>标题</th><th>标签<th>位置</th></tr></thead>
 				<tbody>
 				<c:forEach items="${result}" var="r">
 					<tr>
@@ -34,9 +57,10 @@
 								<img alt="" src="image?id=${r.id}" >
 							</a>
 						</td>
+						<td>${r.distance}</td>
 						<td>${r.title}</td>
 						<td>${r.tags}</td>
-						<td>${r.location}</td>
+						<td>${r.location}（${r.lng}, ${r.lat}）</td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -48,6 +72,10 @@
 		$(document).ready(function() {
 			$('#index-btn').click(function () {
 				$('#inputForm').attr('action', 'index');
+				$('#inputForm').submit();
+			});
+			$('#reindex-btn').click(function () {
+				$('#inputForm').attr('action', 'reindex');
 				$('#inputForm').submit();
 			});
 		});

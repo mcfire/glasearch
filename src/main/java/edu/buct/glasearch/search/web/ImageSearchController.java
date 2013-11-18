@@ -3,16 +3,15 @@ package edu.buct.glasearch.search.web;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import net.semanticmetadata.lire.DocumentBuilder;
-import net.semanticmetadata.lire.ImageSearchHits;
-
-import org.apache.lucene.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,17 +39,24 @@ public class ImageSearchController {
 	@RequestMapping(value="index")
 	public String index(Model model) {
 		imageProcessService.indexImages();
-		return "search/main";
+		return "redirect:main";
+	}
+	
+	@RequestMapping(value="reindex")
+	public String reindex(Model model) throws IOException {
+		imageProcessService.reindexImages();
+		return "redirect:main";
 	}
 	
 	@RequestMapping(value="s")
 	public String search(
 			@RequestParam MultipartFile file, 
+			@RequestParam(required=false) Integer method,
 			@ModelAttribute ImageInformation imageInfo, 
 			Model model) throws IOException {
 		
 		imageInfo.setBuffer(file.getBytes());
-		List<ImageInformation> imageList = imageProcessService.search(imageInfo);
+		List<ImageInformation> imageList = imageProcessService.search(imageInfo, method);
 		
 		model.addAttribute("result", imageList);
 		return "search/main";
@@ -58,7 +64,7 @@ public class ImageSearchController {
 	
 	@RequestMapping("image")
 	@ResponseBody
-	public byte[] image(Long id, Model model, HttpServletResponse response) throws IOException {
+	public ResponseEntity<byte[]> image(Long id, Model model, HttpServletResponse response) throws IOException {
 		ImageInformation image = this.imageProcessService.load(id);
 		String imagePath = imageProcessService.getImagePath() + File.separator + image.getFileName();
 		
@@ -68,7 +74,10 @@ public class ImageSearchController {
 		fs.read(bytes);
 		fs.close();
 		
-		response.setContentType("image/jpeg");
-        return bytes;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_GIF);
+        response.setContentType("image/jpeg");
+        
+        return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
 	}
 }

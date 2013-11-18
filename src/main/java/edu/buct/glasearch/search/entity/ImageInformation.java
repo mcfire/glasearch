@@ -23,7 +23,8 @@ public class ImageInformation extends IdEntity implements net.semanticmetadata.l
 	
 	private String fileName;
 	
-	@Transient
+	private float distance;
+	
 	private byte[] buffer;
 
 	public String getTitle() {
@@ -50,14 +51,6 @@ public class ImageInformation extends IdEntity implements net.semanticmetadata.l
 		this.fileName = fileName;
 	}
 
-	public byte[] getBuffer() {
-		return buffer;
-	}
-
-	public void setBuffer(byte[] buffer) {
-		this.buffer = buffer;
-	}
-
 	public String getLocation() {
 		return location;
 	}
@@ -80,5 +73,23 @@ public class ImageInformation extends IdEntity implements net.semanticmetadata.l
 
 	public void setLng(String lng) {
 		this.lng = lng;
+	}
+
+	@Transient
+	public byte[] getBuffer() {
+		return buffer;
+	}
+
+	public void setBuffer(byte[] buffer) {
+		this.buffer = buffer;
+	}
+
+	@Transient
+	public float getDistance() {
+		return distance;
+	}
+
+	public void setDistance(float distance) {
+		this.distance = distance;
 	}
 }
