@@ -16,7 +16,7 @@ public class ImageSearchController {
 	@Autowired
 	private ImageProcessService imageProcessService;
 
-	@RequestMapping()
+	@RequestMapping("main")
 	public String main(Model model, ServletRequest request) {
 		
 		return "search/main";

@@ -383,7 +383,7 @@
 		</dependency>
 		-->
 
-		<!-- jetty -->
+		<!-- jetty 
 		<dependency>
 			<groupId>org.eclipse.jetty.aggregate</groupId>
 			<artifactId>jetty-webapp</artifactId>
@@ -396,6 +396,7 @@
 			<version>${jetty.version}</version>
 			<scope>test</scope>
 		</dependency>
+		-->
 		<!-- TEST end -->
 	</dependencies>
 	
