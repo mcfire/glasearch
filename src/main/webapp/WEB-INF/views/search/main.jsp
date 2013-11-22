@@ -12,7 +12,7 @@
 
 		<fieldset>
 			<legend><small>图像搜索管理</small></legend>
-			<div class="form-actions">
+			<div class="control-group">
 				<input id="reindex-btn" class="btn" type="button" value="重新建立图像索引"/>
 				<input id="index-btn" class="btn" type="button" value="增量建立图像索引"/>
 			</div>
@@ -22,14 +22,14 @@
 			</div>
 			<div class="control-group">
 				位置：<input type="text" class="span3" name="location" value="${location}" />
-				经度：<input type="text" class="span1" name="lng" value="${lng}" />
-				纬度：<input type="text" class="span1" name="lat" value="${lat}" /><br/>
+				经度：<input type="text" class="span2" name="lng" value="${lng}" />
+				纬度：<input type="text" class="span2" name="lat" value="${lat}" /><br/>
 			</div>
 			<div class="control-group">
 				检索方法：
 				<select name="method">
 					<option value="1">1</option>
-					<option value="2">2</option>
+					<option value="2" selected="true" >2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
 					<option value="5">5</option>

@@ -44,8 +44,8 @@ package edu.buct.glasearch.search.service.indexing;
 import java.awt.image.BufferedImage;
 
 import net.semanticmetadata.lire.DocumentBuilderFactory;
-import net.semanticmetadata.lire.impl.ChainedDocumentBuilder;
-import net.semanticmetadata.lire.impl.SurfDocumentBuilder;
+import net.semanticmetadata.lire.impl.docbuilder.ChainedDocumentBuilder;
+import net.semanticmetadata.lire.impl.docbuilder.SurfDocumentBuilder;
 
 import org.apache.lucene.document.Field;
 
@@ -61,7 +61,6 @@ public class MetadataBuilder extends ChainedDocumentBuilder {
         addBuilder(DocumentBuilderFactory.getCEDDDocumentBuilder());
         addBuilder(DocumentBuilderFactory.getFCTHDocumentBuilder());
         addBuilder(DocumentBuilderFactory.getJCDDocumentBuilder());
-        addBuilder(DocumentBuilderFactory.getColorLayoutBuilder());
         addBuilder(DocumentBuilderFactory.getScalableColorBuilder());
         addBuilder(DocumentBuilderFactory.getEdgeHistogramBuilder());
         addBuilder(DocumentBuilderFactory.getAutoColorCorrelogramDocumentBuilder());
