@@ -50,7 +50,7 @@ public class TaskRestController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaTypes.JSON_UTF_8)
 	@ResponseBody
-	public Task get(@PathVariable("id") Long id) {
+	public Task get(@PathVariable("id") String id) {
 		Task task = taskService.getTask(id);
 		if (task == null) {
 			String message = "任务不存在(id:" + id + ")";
@@ -70,7 +70,7 @@ public class TaskRestController {
 		taskService.saveTask(task);
 
 		// 按照Restful风格约定，创建指向新任务的url, 也可以直接返回id或对象.
-		Long id = task.getId();
+		String id = task.getId();
 		URI uri = uriBuilder.path("/api/v1/task/" + id).build().toUri();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(uri);
@@ -91,7 +91,7 @@ public class TaskRestController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void delete(@PathVariable("id") Long id) {
+	public void delete(@PathVariable("id") String id) {
 		taskService.deleteTask(id);
 	}
 }

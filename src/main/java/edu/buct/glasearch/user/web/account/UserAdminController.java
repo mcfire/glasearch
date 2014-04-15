@@ -38,7 +38,7 @@ public class UserAdminController {
 	}
 
 	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
-	public String updateForm(@PathVariable("id") Long id, Model model) {
+	public String updateForm(@PathVariable("id") String id, Model model) {
 		model.addAttribute("user", accountService.getUser(id));
 		return "account/adminUserForm";
 	}
@@ -51,7 +51,7 @@ public class UserAdminController {
 	}
 
 	@RequestMapping(value = "delete/{id}")
-	public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
+	public String delete(@PathVariable("id") String id, RedirectAttributes redirectAttributes) {
 		User user = accountService.getUser(id);
 		accountService.deleteUser(id);
 		redirectAttributes.addFlashAttribute("message", "删除用户" + user.getLoginName() + "成功");
@@ -63,8 +63,8 @@ public class UserAdminController {
 	 * 因为仅update()方法的form中有id属性，因此仅在update时实际执行.
 	 */
 	@ModelAttribute
-	public void getUser(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
-		if (id != -1) {
+	public void getUser(@RequestParam(value = "id", defaultValue = "-1") String id, Model model) {
+		if (!id.equals("-1")) {
 			model.addAttribute("user", accountService.getUser(id));
 		}
 	}

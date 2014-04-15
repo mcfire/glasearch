@@ -6,6 +6,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import edu.buct.glasearch.search.entity.ImageInformation;
 import edu.buct.glasearch.user.entity.Task;
 
-public interface ImageInformationDao extends PagingAndSortingRepository<ImageInformation, Long>, JpaSpecificationExecutor<Task> {
+public interface ImageInformationDao extends PagingAndSortingRepository<ImageInformation, String>, JpaSpecificationExecutor<Task> {
 
 }

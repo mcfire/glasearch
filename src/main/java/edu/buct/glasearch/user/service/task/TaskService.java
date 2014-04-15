@@ -26,7 +26,7 @@ public class TaskService {
 
 	private TaskDao taskDao;
 
-	public Task getTask(Long id) {
+	public Task getTask(String id) {
 		return taskDao.findOne(id);
 	}
 
@@ -34,7 +34,7 @@ public class TaskService {
 		taskDao.save(entity);
 	}
 
-	public void deleteTask(Long id) {
+	public void deleteTask(String id) {
 		taskDao.delete(id);
 	}
 

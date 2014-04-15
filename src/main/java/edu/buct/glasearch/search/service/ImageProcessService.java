@@ -3,8 +3,10 @@ package edu.buct.glasearch.search.service;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -16,13 +18,15 @@ import net.semanticmetadata.lire.ImageSearcher;
 import net.semanticmetadata.lire.ImageSearcherFactory;
 import net.semanticmetadata.lire.imageanalysis.bovw.SurfFeatureHistogramBuilder;
 import net.semanticmetadata.lire.impl.docbuilder.ChainedDocumentBuilder;
-import net.semanticmetadata.lire.impl.searcher.VisualWordsImageSearcher;
+import net.semanticmetadata.lire.impl.searcher.MSERImageSearcher;
+import net.semanticmetadata.lire.impl.searcher.SIFTImageSearcher;
+import net.semanticmetadata.lire.impl.searcher.SURFImageSearcher;
 import net.semanticmetadata.lire.indexing.LireCustomCodec;
 import net.semanticmetadata.lire.indexing.parallel.ImageInfo;
 import net.semanticmetadata.lire.indexing.parallel.ParallelIndexer;
 import net.semanticmetadata.lire.utils.LuceneUtils;
 
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.commons.io.IOUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -34,6 +38,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.wltea.analyzer.lucene.IKAnalyzer;
+
+import com.iflytek.speech.RecognizerListener;
+import com.iflytek.speech.RecognizerResult;
+import com.iflytek.speech.SpeechConfig.RATE;
+import com.iflytek.speech.SpeechError;
+import com.iflytek.speech.SpeechRecognizer;
 
 import edu.buct.glasearch.search.entity.ImageInformation;
 import edu.buct.glasearch.search.repository.ImageInformationDao;
@@ -53,13 +65,101 @@ public class ImageProcessService {
 	@Autowired
 	ServletContext context;
 	
+	boolean recognizeFinished = false;
+	
     int numResults = 50;
     int method = 2;
     
     public ImageProcessService() {
     }
     
-    public ImageInformation load(Long id) {
+    public ImageInfo buildImageInfo(MultipartFile imageFile, MultipartFile voiceFile, 
+    								String lat, String lng) throws IOException, Exception {
+    	ImageInformation imageInfo = new ImageInformation();
+    	
+    	if (imageFile != null) {
+    		imageInfo.setBuffer(imageFile.getBytes());
+    	}
+    	
+    	if (voiceFile != null) {
+	    	String keywords = this.voiceToText(voiceFile.getInputStream());
+	    	imageInfo.setTitle(keywords);
+	    	imageInfo.setTags(keywords);
+	    	imageInfo.setLocation(keywords);
+    	}
+    	
+    	imageInfo.setLat(lat);
+    	imageInfo.setLng(lng);
+    	
+    	return imageInfo;
+    }
+
+	//FIXME change to event listener model
+    public String voiceToText(InputStream voiceData) throws Exception {
+
+    	recognizeFinished = false;
+    	
+    	final StringBuilder sb = new StringBuilder();
+    	SpeechRecognizer recognizer = SpeechRecognizer.createRecognizer("appid=52a1404c");
+		recognizer.setSampleRate(RATE.rate8k);
+		recognizer.recognizeAudio(new RecognizerListener() {
+
+			@Override
+			public void onResults(ArrayList result, boolean arg1) {
+				
+				Iterator itor = result.iterator();
+				while (itor.hasNext()) {
+					RecognizerResult r = (RecognizerResult)itor.next();
+					sb.append(r.text).append(" ");
+				}
+				recognizeFinished = true;
+			}
+			@Override
+			public void onBeginOfSpeech() {}
+			@Override
+			public void onCancel() {
+				recognizeFinished = true;
+			}
+			@Override
+			public void onEnd(SpeechError arg0) {
+				recognizeFinished = true;
+			}
+			@Override
+			public void onEndOfSpeech() {}
+			@Override
+			public void onVolumeChanged(int arg0) {}				
+		}, IOUtils.toByteArray(voiceData), "sms", "asr_ptt=0", "");
+
+		while (!recognizeFinished) {
+			Thread.sleep(100);
+		}
+		return sb.length() == 0 ? null : sb.toString();
+	}
+	
+	@Transactional(readOnly = false)
+	public void storeSearchFile(MultipartFile uploadFile, String seq) throws IllegalStateException, IOException {
+		
+		File fileStoreDir = new File("d:/upload/glass/");
+		if (!fileStoreDir.isDirectory()) {
+			fileStoreDir.mkdirs();
+		}
+		
+		String filePath = fileStoreDir + "/" + seq;
+		if (uploadFile.getOriginalFilename().endsWith(".raw")) {
+			filePath += ".raw";
+		} else if (uploadFile.getOriginalFilename().endsWith(".jpg")) {
+			filePath += ".jpg";
+		}
+		
+        File dest = new File(filePath);
+        if (dest.exists()) {
+        	throw new IllegalArgumentException("entity id already exist");
+        }
+        
+        uploadFile.transferTo(dest);
+	}
+    
+    public ImageInformation load(String id) {
     	return imageInfoDao.findOne(id);
     }
     
@@ -72,7 +172,7 @@ public class ImageProcessService {
     }
     
     public void deleteAllIndex() throws IOException {
-    	IndexWriterConfig config = new IndexWriterConfig(LuceneUtils.LUCENE_VERSION, new StandardAnalyzer(LuceneUtils.LUCENE_VERSION));
+    	IndexWriterConfig config = new IndexWriterConfig(LuceneUtils.LUCENE_VERSION, new IKAnalyzer());
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
         config.setCodec(new LireCustomCodec());
     	IndexWriter writer = new IndexWriter(FSDirectory.open(new File(getIndexPath())), config);
@@ -117,7 +217,7 @@ public class ImageProcessService {
 
         ImageSearcher searcher = getSearcher();
         ImageSearchHits hits = searcher.search(
-        		ImageIO.read(new ByteArrayInputStream(imageInfo.getBuffer())), reader);
+        		ImageIO.read(new ByteArrayInputStream(imageInfo.getBuffer())), imageInfo, reader);
         reader.close();
         
         List<ImageInformation> imageList = new ArrayList<ImageInformation>();
@@ -129,7 +229,7 @@ public class ImageProcessService {
 				ImageInformation image = new ImageInformation();
 
 				try {
-					image.setId(doc.getField(DocumentBuilder.FIELD_NAME_DBID).numericValue().longValue());
+					image.setId(doc.get(DocumentBuilder.FIELD_NAME_DBID));
 					image.setTitle(doc.get(DocumentBuilder.FIELD_NAME_TITLE));
 					image.setLocation(doc.get(DocumentBuilder.FIELD_NAME_LOCATION));
 					image.setLng(doc.get(DocumentBuilder.FIELD_NAME_LNG));
@@ -151,7 +251,31 @@ public class ImageProcessService {
     private ImageSearcher getSearcher() {
 
         ImageSearcher searcher = ImageSearcherFactory.createColorLayoutImageSearcher(numResults);
-        if (method == 1) {
+        if (method == 0) {
+        	List<ImageSearcher> searchers = new ArrayList<ImageSearcher>();
+        	ImageSearcher edgeHistogramSearcher = ImageSearcherFactory.
+					createEdgeHistogramImageSearcher(numResults);
+        	
+        	ImageSearcher colorHistogramSearcher = ImageSearcherFactory.
+        			createColorHistogramImageSearcher(numResults);
+        	colorHistogramSearcher.setWeight(0.6f);
+
+			ImageSearcher keyWordsSearcher = ImageSearcherFactory.
+					createKeyWordsSearcher(numResults);
+			
+			
+			ImageSearcher locationBasedSearcher = ImageSearcherFactory.
+					createLocationBasedSearcher(numResults);
+			locationBasedSearcher.setWeight(0.8f);
+			
+			searchers.add(edgeHistogramSearcher);
+			searchers.add(colorHistogramSearcher);
+			searchers.add(keyWordsSearcher);
+			searchers.add(locationBasedSearcher);
+			
+            searcher = ImageSearcherFactory.createMultipleVoterImageSearcher(numResults, searchers);
+            
+        } else if (method == 1) {
             searcher = ImageSearcherFactory.createScalableColorImageSearcher(numResults);
         } else if (method == 2) {
             searcher = ImageSearcherFactory.createEdgeHistogramImageSearcher(numResults);
@@ -172,15 +296,23 @@ public class ImageProcessService {
         } else if (method == 10) {
             searcher = ImageSearcherFactory.createJpegCoefficientHistogramImageSearcher(numResults);
         } else if (method == 11) {
-            searcher = new VisualWordsImageSearcher(numResults, DocumentBuilder.FIELD_NAME_SURF_VISUAL_WORDS);
+            searcher = new SIFTImageSearcher(numResults, null, DocumentBuilder.FIELD_NAME_SIFT);
         } else if (method == 12) {
-            searcher = ImageSearcherFactory.createJointHistogramImageSearcher(numResults);
+            searcher = new SURFImageSearcher(numResults, null, DocumentBuilder.FIELD_NAME_SURF);
         } else if (method == 13) {
-            searcher = ImageSearcherFactory.createOpponentHistogramSearcher(numResults);
+            searcher = new MSERImageSearcher(numResults, null, DocumentBuilder.FIELD_NAME_MSER);
         } else if (method == 14) {
+            searcher = ImageSearcherFactory.createJointHistogramImageSearcher(numResults);
+        } else if (method == 15) {
+            searcher = ImageSearcherFactory.createOpponentHistogramSearcher(numResults);
+        } else if (method == 16) {
             searcher = ImageSearcherFactory.createLuminanceLayoutImageSearcher(numResults);
-        } else if (method >= 15) {
+        } else if (method == 17) {
             searcher = ImageSearcherFactory.createPHOGImageSearcher(numResults);
+        } else if (method == 18) {
+            searcher = ImageSearcherFactory.createKeyWordsSearcher(numResults);
+        } else if (method == 19) {
+            searcher = ImageSearcherFactory.createLocationBasedSearcher(numResults);
         }
         return searcher;
     }

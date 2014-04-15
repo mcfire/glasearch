@@ -29,7 +29,7 @@ public class ProfileController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String updateForm(Model model) {
-		Long id = getCurrentUserId();
+		String id = getCurrentUserId();
 		model.addAttribute("user", accountService.getUser(id));
 		return "account/profile";
 	}
@@ -46,8 +46,8 @@ public class ProfileController {
 	 * 因为仅update()方法的form中有id属性，因此仅在update时实际执行.
 	 */
 	@ModelAttribute
-	public void getUser(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
-		if (id != -1) {
+	public void getUser(@RequestParam(value = "id", defaultValue = "-1") String id, Model model) {
+		if (!id.equals("-1")) {
 			model.addAttribute("user", accountService.getUser(id));
 		}
 	}
@@ -55,7 +55,7 @@ public class ProfileController {
 	/**
 	 * 取出Shiro中的当前用户Id.
 	 */
-	private Long getCurrentUserId() {
+	private String getCurrentUserId() {
 		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
 		return user.id;
 	}

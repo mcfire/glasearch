@@ -43,7 +43,7 @@ public class AccountService {
 		return (List<User>) userDao.findAll();
 	}
 
-	public User getUser(Long id) {
+	public User getUser(String id) {
 		return userDao.findOne(id);
 	}
 
@@ -66,7 +66,7 @@ public class AccountService {
 		userDao.save(user);
 	}
 
-	public void deleteUser(Long id) {
+	public void deleteUser(String id) {
 		if (isSupervisor(id)) {
 			logger.warn("操作员{}尝试删除超级管理员用户", getCurrentUserName());
 			throw new ServiceException("不能删除超级管理员用户");
@@ -79,8 +79,8 @@ public class AccountService {
 	/**
 	 * 判断是否超级管理员.
 	 */
-	private boolean isSupervisor(Long id) {
-		return id == 1;
+	private boolean isSupervisor(String id) {
+		return id.equals("1");
 	}
 
 	/**

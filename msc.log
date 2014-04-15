@@ -1,0 +1,1257 @@
+=============================================================
+	iFlyTEK log file
+	Subject : Running Information
+	Created-Time: 2014/2/26-14:58:50 063
+	Application: D:\Java\jdk1.6.0_45\bin\javaw.exe
+	PID: 11668 Version: 6.0.450.6
+=============================================================
+[2014/2/26-14:58:50 063][VBS][Px2d94][Tx75d4] parse_mngr_info| leave ok.
+[2014/2/26-14:58:50 064][VBS][Px2d94][Tx75d4] read_common_conf| read server_url from config file failed, use default value http://dev.voicecloud.cn/index.htm.
+[2014/2/26-14:58:50 064][VBS][Px2d94][Tx75d4] read_common_conf| read ip_dns from config file failed
+[2014/2/26-14:58:50 064][VBS][Px2d94][Tx75d4] read_common_conf| read timeout from config file failed, use default value 30000.
+[2014/2/26-14:58:50 064][VBS][Px2d94][Tx75d4] read_common_conf| read coding_libs from config file failed, use default value "speex.dll".
+[2014/2/26-14:58:50 064][VBS][Px2d94][Tx75d4] read_common_conf| read upload_err_log from config file failed, use the default value True.
+[2014/2/26-14:58:50 064][VBS][Px2d94][Tx75d4] read_common_conf| read svc_mode from config file failed, use the default value Svc_Net_Only.
+[2014/2/26-14:58:50 064][VBS][Px2d94][Tx75d4] read_recog_conf| read recog_url from config file failed, use default value http://dev.voicecloud.cn/index.htm.
+[2014/2/26-14:58:50 064][WAN][Px2d94][Tx75d4] read_recog_conf| read max_audio_size from config file failed, it should be specified in config string!otherwise it will use the default value 256KB.
+[2014/2/26-14:58:50 064][WAN][Px2d94][Tx75d4] read_recog_conf| read coding_chunk_size from config file failed, it should be specified in config string!otherwise it will use the default value 5KB.
+[2014/2/26-14:58:50 064][WAN][Px2d94][Tx75d4] read_recog_conf| read coding_package_size from config file failed, it should be specified in config string!otherwise it will use the default value 5KB.
+[2014/2/26-14:58:50 064][WAN][Px2d94][Tx75d4] read_recog_conf| read vad_enable from config file failed, defaut value true will be used!
+[2014/2/26-14:58:50 064][WAN][Px2d94][Tx75d4] read_recog_conf| read audio_coding from config file failed, it should be specified in config string!otherwise it will use the default string "speex-wb".
+[2014/2/26-14:58:50 064][WAN][Px2d94][Tx75d4] read_recog_conf| read coding_level from config file failed, it should be specified in config string!otherwise it will use the default value 7.
+[2014/2/26-14:58:50 066][INF][Px2d94][Tx75d4] init_sess_info| open session performance log file ./msc/c6429e3de1973d1379d94326c4ea655b/msc_p.log failed, err = 2
+[2014/2/26-14:58:50 066][INF][Px2d94][Tx75d4] init_sess_info| got total 0 performance info to upload.
+[2014/2/26-14:58:50 066][INF][Px2d94][Tx75d4] create_conf_inst| the thread looking for best server has been activated successfully!
+[2014/2/26-14:58:50 066][VBS][Px2d94][Tx75d4] register_conf| regist ok!
+[2014/2/26-14:58:50 066][VBS][Px2d94][Tx75d4] QISRInit | leave, ret = 0
+[2014/2/26-14:58:50 067][VBS][Px2d94][Tx1684] socket_thread| socket thread activated.
+[2014/2/26-14:58:50 067][VBS][Px2d94][Tx1684] sock thread suspend...
+[2014/2/26-14:58:50 068][VBS][Px2d94][Tx4248] assist_parser_domain| enter!
+[2014/2/26-14:58:50 080][INF][Px2d94][Tx4248] get_ip_from_url| DNS: url input is dev.voicecloud.cn, corresponding ip is 59.107.24.7
+[2014/2/26-14:58:50 080][INF][Px2d94][Tx4248] assist_parser_domain| get server ip 59.107.24.7 from server url http://dev.voicecloud.cn/index.htm
+[2014/2/26-14:58:50 080][VBS][Px2d94][Tx4248] assist_parser_domain| leave!
+[2014/2/26-14:58:50 080][VBS][Px2d94][Tx4248] assist_worker| suspend assist thread...
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] QISRSessionBegin| enter, grammarList=NULL, params=eos=1800,sub=iat,auf=audio/L16;rate=8000,tte=gb2312,vad_timeout=5000,rst=json,vad_speech_tail=1800,aue=speex-wb,mac=B8-88-E3-F6-51-49,ssm=1,ent=sms8k,rse=utf-8
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] new_recognizer| enter.
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] new_recognizer| leave ok.
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] read_uid| enter.
+[2014/2/26-14:58:58 611][INF][Px2d94][Tx5fc0] read_uid| open user data file ./msc/c6429e3de1973d1379d94326c4ea655b/u.dat failed, err = 2
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] recog_session_begin| enter,last_net_type=7.
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx4248] assist_worker| assist thread resumed.
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx4248] assist_worker| suspend assist thread...
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] recog_session_begin| the audio_encoding thread has been activated!
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] recog_create_http_msg_for_sess| enter.
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] add_auth_info| enter. 
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] read_uid| enter.
+[2014/2/26-14:58:58 611][INF][Px2d94][Tx5fc0] read_uid| open user data file ./msc/c6429e3de1973d1379d94326c4ea655b/u.dat failed, err = 2
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] add_auth_info| auth info added
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] add_auth_info| validating info added
+[2014/2/26-14:58:58 611][VBS][Px2d94][Tx5fc0] add_auth_info| leave ok.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx5fc0] mssp_encrypt_content| count md5.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx5fc0] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:1221
+
+----
+CL:138
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&auf=audio%2FL16%3Brate%3D8000&ent=sms8k&aue=speex%2Dwb&cmd=ssb&cver=4%2E0%2E0%2E1031&key=0c4G4KJ85svIxdR/Ayfi6e4Q==
+----
+CL:48
+CT:text/appinfo
+CE:encrypt/0.2
+
+"˝D4`
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx5fc0] recog_create_http_msg_for_sess| leave ok.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx5fc0] recog_session_begin| the message-sending-receiving thread has been activated!
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx7518] recog_encode_speech_worker| enter.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx5fc0] recog_session_begin| leave ok.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx5fc0] QISRSessionBegin| leave ok.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker| enter.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx3d08] wait_dns| enter.
+[2014/2/26-14:58:58 612][INF][Px2d94][Tx3d08] wait_dns| net type changed, need redns.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx3d08] redns_notify| notify ok!
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx3d08] redns_notify | resume assist thread...
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx4248] assist_worker| assist thread resumed.
+[2014/2/26-14:58:58 612][INF][Px2d94][Tx3d08] get_best_server| got server ip 59.107.24.7.
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx4248] assist_parser_domain| enter!
+[2014/2/26-14:58:58 612][VBS][Px2d94][Tx3d08] wait_dns| leave ok.
+[2014/2/26-14:58:58 613][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker| server ip = 59.107.24.7.
+[2014/2/26-14:58:58 613][VBS][Px2d94][Tx3d08] connect_server_async| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 613][INF][Px2d94][Tx3d08] connect_server_async| connecting to 59.107.24.7:1028.
+[2014/2/26-14:58:58 613][VBS][Px2d94][Tx3d08] sock thread resume...
+[2014/2/26-14:58:58 613][VBS][Px2d94][Tx3d08] connect_server_async| leave ok.
+[2014/2/26-14:58:58 613][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 620][INF][Px2d94][Tx4248] get_ip_from_url| DNS: url input is dev.voicecloud.cn, corresponding ip is 59.107.24.7
+[2014/2/26-14:58:58 620][INF][Px2d94][Tx4248] assist_parser_domain| get server ip 59.107.24.7 from server url http://dev.voicecloud.cn/index.htm
+[2014/2/26-14:58:58 620][VBS][Px2d94][Tx4248] assist_parser_domain| leave!
+[2014/2/26-14:58:58 620][VBS][Px2d94][Tx4248] assist_worker| suspend assist thread...
+[2014/2/26-14:58:58 633][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 633][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 653][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 653][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 658][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 658][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 658][INF][Px2d94][Tx5fc0] recog_audio_write| front point of speech input has been detected!
+[2014/2/26-14:58:58 658][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 658][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 1, recStatus = 2
+[2014/2/26-14:58:58 659][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 659][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 660][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 660][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 660][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 660][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 660][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 660][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 673][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 673][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 693][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 693][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 713][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 713][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 733][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 733][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 745][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 745][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 745][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 745][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 745][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 745][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 746][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 746][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 746][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 746][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 746][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 746][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 753][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 753][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 773][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 773][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 793][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 794][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 794][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 794][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 794][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 813][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 813][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 833][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 833][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 841][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 841][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 841][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 841][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 841][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 841][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 842][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 842][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 842][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 842][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 842][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 842][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 853][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 853][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 874][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 874][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 889][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 889][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 889][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 889][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 889][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 890][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 890][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 890][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 890][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 890][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-14:58:58 890][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=volume, valueLen=128
+[2014/2/26-14:58:58 890][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-14:58:58 894][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-14:58:58 894][VBS][Px2d94][Tx3d08] connect_server_check| enter, transport = 0x81e1660, connect status = 0
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] connect_server_check| leave ok, ret = 0.
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] connect_server| enter, transport = 0x81e1660, connect status = 1
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] connect_server| leave ok, connected already.
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] send_message| enter.
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] send_message| leave ok.
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] send_message| enter.
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] send_message| leave ok.
+[2014/2/26-14:58:58 896][VBS][Px2d94][Tx3d08] send_http_message| http request message has been sent out successfully
+[2014/2/26-14:58:58 936][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 936][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 936][INF][Px2d94][Tx5fc0] recog_audio_write| end point of speech input has been detected!
+[2014/2/26-14:58:58 936][VBS][Px2d94][Tx5fc0] recog_audio_write| leave, session mode ok.
+[2014/2/26-14:58:58 936][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:58 936][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 936][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 936][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:58 937][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:58 983][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 983][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 983][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:58 983][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:58 983][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:58 983][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:58 983][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:58 983][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 030][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 030][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 030][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 030][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 030][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 030][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 030][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 030][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 076][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 076][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 076][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 076][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 076][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 076][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 076][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 076][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 122][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 122][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 122][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 122][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 122][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 122][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 122][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 122][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 148][VBS][Px2d94][Tx3d08] recog_try_connect| got response message:
+HTTP/1.1 200 OK
+Content-Length: 172
+X-Req-Date: 2014/02/26 14:58:59 853
+CT: text/plain
+CL: 172
+X-Res-Date: 2014/02/26 14:58:59 895
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&uid=a804441964&key=0fNXqKLwDukXKSkOIX4bdO0emgT88Hq9u8cDyOZHIf4UA^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67hmhs5T9hkChy1d85/u1uu4=
+[2014/2/26-14:58:59 148][VBS][Px2d94][Tx3d08] write_uid| enter.
+[2014/2/26-14:58:59 150][INF][Px2d94][Tx3d08] recog_msg_send_recv_worker| update net_rate as 753.295654
+[2014/2/26-14:58:59 150][INF][Px2d94][Tx3d08] recog_msg_send_recv_worker| session has been created successfully.
+[2014/2/26-14:58:59 150][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker| update first response sync id 0.
+[2014/2/26-14:58:59 150][INF][Px2d94][Tx3d08] recog_msg_send_recv_worker| build & send last audio block.
+[2014/2/26-14:58:59 150][VBS][Px2d94][Tx3d08] recog_create_http_message| enter.
+[2014/2/26-14:58:59 155][VBS][Px2d94][Tx3d08] mssp_encrypt_content| count md5.
+[2014/2/26-14:58:59 155][VBS][Px2d94][Tx3d08] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:5329
+
+----
+CL:173
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=auw&aus=5&cver=4%2E0%2E0%2E1031&key=0fNXqKLwDukXKSkOIX4bdO0emgT88Hq9u8cDyOZHIf4UA^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67sirsDHtuaHny1d85/u1uu4=
+----
+CL:4952
+CT:audio/L16;rate=8000
+CE:speex-wb,encrypt/0.2
+
+6{”¿‹ÖÅÅÅÅÅÅÅÏ»ù+≤B!Ï®⁄åIÈ‚ÀJ®Wâäà`Ωå∂£Q‹ƒŸeXÂ…ŒUY¢y(Á–&·ˆ“@å-Mò∆A0)≥™Û~ÀBÆÍäùfÆ∏Z!Zûynì“=;#£ä∂⁄ª•
+æUY¢/$ıﬁRAYT+Sô¬6ˆ¯◊ÎŸˇoóÙøh\Ü	ù2ÜÔ¨PBjt≠≥R(A„â$AŸâI@nU\Ø2^ ÇUAM62È_OjËækOö∂«XÛ5–•Kâ»ºíã
+®2/”QπÃ≈	Ê®\%1sèèä∆Á$Œg©aï6Sqs$Í»	…Õ‘∂i—√>≤‰ä[1’∑•ıí73Téñﬂ]√PK3'ô cYÏŒâ¨É>U]^Røf^õ¢_√®å‚DíoWbñ˛áÑt|ßïº˘x1êÓ˙¢Î Öñ4/A)Ã≠QX∂∏)BàIÿh+nU]W⁄º«≤⁄$å¿0&Ú&æt˜˛éÅ⁄Ö8Teƒ°‚ÃÚÓô‹ªµCjÎÛ+†d3¢ÛPx¬g´2˘g!˘¡)NU[¢ Á√ﬂ˙!ô§h{é'¨RÌˇ Ö}&Æƒ⁄5ºÎëßhj2Íã†t[PB®Qx¡ÂfiAaÚÒlõU[∞|'}v!!R
+[2014/2/26-14:58:59 155][VBS][Px2d94][Tx3d08] recog_create_http_message| leave ok.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] connect_server| enter, transport = 0x81e1660, connect status = 1
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] connect_server| leave ok, connected already.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| enter.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| leave ok.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| enter.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| leave ok.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_http_message| http request message has been sent out successfully
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] recog_create_http_msg_for_sess| enter.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] mssp_encrypt_content| count md5.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:311
+
+----
+CL:167
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=grs&cver=4%2E0%2E0%2E1031&key=0fNXqKLwDukXKSkOIX4bdO0emgT88Hq9u8cDyOZHIf4UA^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67oONsu/TuvMhy1d85/u1uu4=
+----
+CL:56
+CT:text/params
+CE:encrypt/0.2
+
+8øK?√	!]\
+YQ^P^Y[^YZL]Y
+OTXYYYOT
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] recog_create_http_msg_for_sess| leave ok.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] connect_server| enter, transport = 0x81e1660, connect status = 1
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] connect_server| leave ok, connected already.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| enter.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| leave ok.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| enter.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_message| leave ok.
+[2014/2/26-14:58:59 156][VBS][Px2d94][Tx3d08] send_http_message| http request message has been sent out successfully
+[2014/2/26-14:58:59 168][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 168][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 168][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 168][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 168][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 168][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 168][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 168][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 214][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 214][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 214][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 214][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 214][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=4800.
+[2014/2/26-14:58:59 214][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 214][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 214][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=2, len=1280.
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 260][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] QISRAudioWrite| enter, sessionID=2d945fc0879702703@recog, audioStatus=4, len=0.
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] recog_audio_write| enter.
+[2014/2/26-14:58:59 260][WAN][Px2d94][Tx5fc0] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 260][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-14:58:59 361][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 361][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 361][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-14:58:59 461][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 461][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 461][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-14:58:59 561][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 561][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 561][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-14:58:59 661][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 661][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 661][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-14:58:59 761][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 761][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 761][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-14:58:59 861][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 861][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 861][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-14:58:59 954][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker| http response message:
+HTTP/1.1 200 OK
+Content-Length: 387
+X-Req-Date: 2014/02/26 14:59:00 21
+CT: mp;b=--
+CL: 387
+X-Res-Date: 2014/02/26 14:59:00 708
+
+----
+CL:175
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&rss=5&eps=3&rcs=2&key=0fNXqKLwDukXKSkOIX4bdO0emgT88Hq9u8cDyOZHIf4UA^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67sirsDHtuaHny1d85/u1uu4=
+----
+CL:120
+CT:binary/recresult;charset=utf8
+CE:encrypt/0.2
+
+4˜ô	ÕW´KKSEKKSYEKKSYEKKS2KKSYEK
+KS2KKSKç‘…KEK
+KSY4EKKSY‘Ìì¨/”1KKSKäÈÎKEK
+KSY44
+[2014/2/26-14:58:59 954][VBS][Px2d94][Tx3d08] mssp_decrypt_content| count md5.
+[2014/2/26-14:58:59 954][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker|  got response sync id 1.
+[2014/2/26-14:58:59 954][VBS][Px2d94][Tx3d08] recog_parse_isr_rslt| result_str_size=109
+the recognition char-format result[id-1] is: 
+{"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"„ÄÇ","sc":0}]}]}
+[2014/2/26-14:58:59 954][VBS][Px2d94][Tx3d08] no other result, push to first.
+[2014/2/26-14:58:59 954][INF][Px2d94][Tx3d08] recog_msg_send_recv_worker| got first result.
+[2014/2/26-14:58:59 961][VBS][Px2d94][Tx5fc0] QISRGetResult| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:58:59 961][VBS][Px2d94][Tx5fc0] recog_get_result| enter.
+[2014/2/26-14:58:59 961][VBS][Px2d94][Tx5fc0] recog_get_result| leave ok, got result {"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"„ÄÇ","sc":0}]}]}, status = 5
+[2014/2/26-14:58:59 961][VBS][Px2d94][Tx5fc0] QISRGetResult| leave ok, result = {"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"„ÄÇ","sc":0}]}]}, status = 5, errorCode = 0.
+[2014/2/26-14:58:59 975][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker| http response message:
+HTTP/1.1 200 OK
+Content-Length: 163
+X-Req-Date: 2014/02/26 14:59:00 708
+CT: text/plain
+CL: 163
+X-Res-Date: 2014/02/26 14:59:00 714
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&rss=2&key=0fNXqKLwDukXKSkOIX4bdO0emgT88Hq9u8cDyOZHIf4UA^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67hmhs5T9hkChy1d85/u1uu4=
+[2014/2/26-14:58:59 975][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker|  got response sync id 0.
+[2014/2/26-14:59:16 544][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=upflow, valueLen=128
+[2014/2/26-14:59:16 544][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=7043, len = 4
+[2014/2/26-14:59:16 544][VBS][Px2d94][Tx5fc0] QISRGetParam| enter, sessionID=2d945fc0879702703@recog, paramName=downflow, valueLen=128
+[2014/2/26-14:59:16 544][VBS][Px2d94][Tx5fc0] QISRGetParam| leave, ret=0, value=956, len = 3
+[2014/2/26-14:59:16 544][VBS][Px2d94][Tx5fc0] QISRSessionEnd| enter, sessionID=2d945fc0879702703@recog
+[2014/2/26-14:59:16 544][VBS][Px2d94][Tx5fc0] recog_session_end| enter.
+[2014/2/26-14:59:16 561][VBS][Px2d94][Tx7518] recog_encode_speech_worker| leave ok.
+[2014/2/26-14:59:16 571][VBS][Px2d94][Tx3d08] recog_msg_send_recv_worker| leave ok.
+[2014/2/26-14:59:16 586][VBS][Px2d94][Tx5fc0] disconnect_server| enter.
+[2014/2/26-14:59:16 586][VBS][Px2d94][Tx5fc0] disconnect_server| leave ok.
+[2014/2/26-14:59:16 586][INF][Px2d94][Tx5fc0] recog_session_end| size of data uploaded by user: 7043(bytes), downloaded by user: 956(bytes), effective data uploaded by user: 4941(bytes), effective data downloaded by user: 109(bytes).
+[2014/2/26-14:59:16 586][VBS][Px2d94][Tx5fc0] recog_session_end| leave ok.
+[2014/2/26-14:59:16 588][VBS][Px2d94][Tx1684] sock thread suspend...
+[2014/2/26-14:59:16 605][VBS][Px2d94][Tx5fc0] release_recognizer| enter.
+[2014/2/26-14:59:16 605][VBS][Px2d94][Tx5fc0] disconnect_server| enter.
+[2014/2/26-14:59:16 605][VBS][Px2d94][Tx5fc0] disconnect_server| leave ok.
+[2014/2/26-14:59:16 605][VBS][Px2d94][Tx5fc0] release_recognizer| leave ok.
+[2014/2/26-14:59:16 605][VBS][Px2d94][Tx5fc0] QISRSessionEnd| leave, reason: success.
+[2014/2/26-14:59:16 605][VBS][Px2d94][Tx5fc0] QISRSessionEnd| leave ok, ret = 0.
+=============================================================
+	iFlyTEK log file
+	Subject : Running Information
+	Created-Time: 2014/2/26-15:3:13 727
+	Application: D:\Java\jdk1.6.0_45\bin\javaw.exe
+	PID: 14416 Version: 6.0.450.6
+=============================================================
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] parse_mngr_info| leave ok.
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] read_common_conf| read server_url from config file failed, use default value http://dev.voicecloud.cn/index.htm.
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] read_common_conf| read ip_dns from config file failed
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] read_common_conf| read timeout from config file failed, use default value 30000.
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] read_common_conf| read coding_libs from config file failed, use default value "speex.dll".
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] read_common_conf| read upload_err_log from config file failed, use the default value True.
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] read_common_conf| read svc_mode from config file failed, use the default value Svc_Net_Only.
+[2014/2/26-15:3:13 727][VBS][Px3850][Tx560c] read_recog_conf| read recog_url from config file failed, use default value http://dev.voicecloud.cn/index.htm.
+[2014/2/26-15:3:13 727][WAN][Px3850][Tx560c] read_recog_conf| read max_audio_size from config file failed, it should be specified in config string!otherwise it will use the default value 256KB.
+[2014/2/26-15:3:13 727][WAN][Px3850][Tx560c] read_recog_conf| read coding_chunk_size from config file failed, it should be specified in config string!otherwise it will use the default value 5KB.
+[2014/2/26-15:3:13 727][WAN][Px3850][Tx560c] read_recog_conf| read coding_package_size from config file failed, it should be specified in config string!otherwise it will use the default value 5KB.
+[2014/2/26-15:3:13 727][WAN][Px3850][Tx560c] read_recog_conf| read vad_enable from config file failed, defaut value true will be used!
+[2014/2/26-15:3:13 727][WAN][Px3850][Tx560c] read_recog_conf| read audio_coding from config file failed, it should be specified in config string!otherwise it will use the default string "speex-wb".
+[2014/2/26-15:3:13 728][VBS][Px3850][Tx4700] socket_thread| socket thread activated.
+[2014/2/26-15:3:13 772][WAN][Px3850][Tx560c] read_recog_conf| read coding_level from config file failed, it should be specified in config string!otherwise it will use the default value 7.
+[2014/2/26-15:3:13 772][VBS][Px3850][Tx4700] sock thread suspend...
+[2014/2/26-15:3:13 772][INF][Px3850][Tx560c] init_sess_info| got total 1 performance info to upload.
+[2014/2/26-15:3:13 773][INF][Px3850][Tx560c] create_conf_inst| the thread looking for best server has been activated successfully!
+[2014/2/26-15:3:13 773][VBS][Px3850][Tx560c] register_conf| regist ok!
+[2014/2/26-15:3:13 773][VBS][Px3850][Tx560c] QISRInit | leave, ret = 0
+[2014/2/26-15:3:13 773][VBS][Px3850][Tx2868] assist_parser_domain| enter!
+[2014/2/26-15:3:13 779][INF][Px3850][Tx2868] get_ip_from_url| DNS: url input is dev.voicecloud.cn, corresponding ip is 59.107.24.7
+[2014/2/26-15:3:13 779][INF][Px3850][Tx2868] assist_parser_domain| get server ip 59.107.24.7 from server url http://dev.voicecloud.cn/index.htm
+[2014/2/26-15:3:13 779][VBS][Px3850][Tx2868] assist_parser_domain| leave!
+[2014/2/26-15:3:13 779][VBS][Px3850][Tx2868] assist_worker| suspend assist thread...
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] QISRSessionBegin| enter, grammarList=NULL, params=eos=1800,sub=iat,auf=audio/L16;rate=8000,tte=gb2312,vad_timeout=5000,rst=json,vad_speech_tail=1800,aue=speex-wb,mac=B8-88-E3-F6-51-49,ssm=1,ent=sms8k,rse=utf-8
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] new_recognizer| enter.
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] new_recognizer| leave ok.
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] read_uid| enter.
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] recog_session_begin| enter,last_net_type=7.
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx2868] assist_worker| assist thread resumed.
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx2868] assist_worker| suspend assist thread...
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] recog_session_begin| the audio_encoding thread has been activated!
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] recog_create_http_msg_for_sess| enter.
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] add_auth_info| enter. 
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] read_uid| enter.
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] add_auth_info| auth info added
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] add_auth_info| validating info added
+[2014/2/26-15:3:16 869][VBS][Px3850][Tx7b50] add_auth_info| leave ok.
+[2014/2/26-15:3:16 872][VBS][Px3850][Tx7b50] mssp_encrypt_content| count md5.
+[2014/2/26-15:3:16 872][VBS][Px3850][Tx7b50] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:1830
+
+----
+CL:138
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&auf=audio%2FL16%3Brate%3D8000&ent=sms8k&aue=speex%2Dwb&cmd=ssb&cver=4%2E0%2E0%2E1031&key=0c4G4KJ85svIxdR/Ayfi6e4Q==
+----
+CL:528
+CT:text/log+perf
+CE:gzip,encrypt/0.2
+
+º…6Â√Y∏¶xßÆ%∞zXÌ›*ÑÂWÛC€¥∞ì∑¥Âß®¸‹Ê'Vùëˇe⁄^@~ÿ‚¿®^fƒÛÔ˚3Å]åWˇfΩ»
+[2014/2/26-15:3:16 872][VBS][Px3850][Tx7b50] recog_create_http_msg_for_sess| leave ok.
+[2014/2/26-15:3:16 872][VBS][Px3850][Tx7b50] recog_session_begin| the message-sending-receiving thread has been activated!
+[2014/2/26-15:3:16 872][VBS][Px3850][Tx7b50] recog_session_begin| leave ok.
+[2014/2/26-15:3:16 872][VBS][Px3850][Tx7b50] QISRSessionBegin| leave ok.
+[2014/2/26-15:3:16 873][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:16 873][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:16 873][INF][Px3850][Tx7b50] recog_audio_write| front point of speech input has been detected!
+[2014/2/26-15:3:16 873][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:16 873][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 1, recStatus = 2
+[2014/2/26-15:3:16 875][VBS][Px3850][Tx4dd4] recog_encode_speech_worker| enter.
+[2014/2/26-15:3:16 890][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:16 890][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:16 891][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker| enter.
+[2014/2/26-15:3:16 891][VBS][Px3850][Tx66a4] wait_dns| enter.
+[2014/2/26-15:3:16 891][INF][Px3850][Tx66a4] wait_dns| net type changed, need redns.
+[2014/2/26-15:3:16 891][VBS][Px3850][Tx66a4] redns_notify| notify ok!
+[2014/2/26-15:3:16 891][VBS][Px3850][Tx66a4] redns_notify | resume assist thread...
+[2014/2/26-15:3:16 891][INF][Px3850][Tx66a4] get_best_server| got server ip 59.107.24.7.
+[2014/2/26-15:3:16 891][VBS][Px3850][Tx66a4] wait_dns| leave ok.
+[2014/2/26-15:3:16 891][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker| server ip = 59.107.24.7.
+[2014/2/26-15:3:16 891][VBS][Px3850][Tx66a4] connect_server_async| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:16 892][INF][Px3850][Tx66a4] connect_server_async| connecting to 59.107.24.7:1028.
+[2014/2/26-15:3:16 892][VBS][Px3850][Tx66a4] sock thread resume...
+[2014/2/26-15:3:16 892][VBS][Px3850][Tx66a4] connect_server_async| leave ok.
+[2014/2/26-15:3:16 892][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:16 892][VBS][Px3850][Tx2868] assist_worker| assist thread resumed.
+[2014/2/26-15:3:16 892][VBS][Px3850][Tx2868] assist_parser_domain| enter!
+[2014/2/26-15:3:16 893][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:16 893][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:16 895][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:16 895][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:16 895][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:16 895][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:16 912][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:16 912][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:16 917][INF][Px3850][Tx2868] get_ip_from_url| DNS: url input is dev.voicecloud.cn, corresponding ip is 59.107.24.7
+[2014/2/26-15:3:16 917][INF][Px3850][Tx2868] assist_parser_domain| get server ip 59.107.24.7 from server url http://dev.voicecloud.cn/index.htm
+[2014/2/26-15:3:16 917][VBS][Px3850][Tx2868] assist_parser_domain| leave!
+[2014/2/26-15:3:16 917][VBS][Px3850][Tx2868] assist_worker| suspend assist thread...
+[2014/2/26-15:3:16 932][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:16 932][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:16 952][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:16 952][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:16 953][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:16 953][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:16 953][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:16 953][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:16 955][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:16 955][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:16 955][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:16 955][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:16 955][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:16 955][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:16 956][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:16 956][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:16 972][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:16 972][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:16 993][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:16 993][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:17 002][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 002][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 002][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:17 002][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:17 002][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:17 002][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:17 003][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 003][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 003][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:17 003][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:17 003][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:17 003][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:17 013][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:17 013][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:17 033][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:17 033][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 050][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 051][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:17 051][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:17 051][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:17 051][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:17 053][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:17 053][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:17 073][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:3:17 073][VBS][Px3850][Tx66a4] connect_server_check| enter, transport = 0x8171660, connect status = 0
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] connect_server_check| leave ok, ret = 0.
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] connect_server| enter, transport = 0x8171660, connect status = 1
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] connect_server| leave ok, connected already.
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] send_message| enter.
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] send_message| leave ok.
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] send_message| enter.
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] send_message| leave ok.
+[2014/2/26-15:3:17 082][VBS][Px3850][Tx66a4] send_http_message| http request message has been sent out successfully
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 098][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 099][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:17 099][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:3:17 099][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:3:17 099][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:3:17 144][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 144][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 144][INF][Px3850][Tx7b50] recog_audio_write| end point of speech input has been detected!
+[2014/2/26-15:3:17 144][VBS][Px3850][Tx7b50] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:3:17 144][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 144][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 144][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 144][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 144][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 193][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 193][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 193][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 193][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 193][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 193][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 193][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 193][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 208][VBS][Px3850][Tx66a4] recog_try_connect| got response message:
+HTTP/1.1 200 OK
+Content-Length: 172
+X-Req-Date: 2014/02/26 15:03:17 916
+CT: text/plain
+CL: 172
+X-Res-Date: 2014/02/26 15:03:17 953
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&uid=a804441964&key=0fNE6iI8cjStb6wLQ9VuYTjkqFKYChwiqaE94u5bczapQ^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67hmhs5T9hkChy1d85/u1uu4=
+[2014/2/26-15:3:17 208][VBS][Px3850][Tx66a4] write_uid| enter.
+[2014/2/26-15:3:17 209][INF][Px3850][Tx66a4] recog_msg_send_recv_worker| update net_rate as 1166.180786
+[2014/2/26-15:3:17 209][INF][Px3850][Tx66a4] recog_msg_send_recv_worker| session has been created successfully.
+[2014/2/26-15:3:17 209][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker| update first response sync id 0.
+[2014/2/26-15:3:17 209][INF][Px3850][Tx66a4] recog_msg_send_recv_worker| build & send last audio block.
+[2014/2/26-15:3:17 209][VBS][Px3850][Tx66a4] recog_create_http_message| enter.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] mssp_encrypt_content| count md5.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:5337
+
+----
+CL:173
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=auw&aus=5&cver=4%2E0%2E0%2E1031&key=0fNE6iI8cjStb6wLQ9VuYTjkqFKYChwiqaE94u5bczapQ^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67sirsDHtuaHny1d85/u1uu4=
+----
+CL:4952
+CT:audio/L16;rate=8000
+CE:speex-wb,encrypt/0.2
+
+Ô%^Ñúg¸2ÅÅÅÅÅÅÅÏ»ù+≤B!Ï®⁄åIÈ‚ÀJ®Wâäà`Ωå∂£Q‹ƒŸeXÂ…ŒUY¢y(Á–&·ˆ“@å-Mò∆â”&:d©>—™Û~ÀBÆÍäùfÆ∏Z!Zûynì“=;#£ä∂⁄ª•
+æUY¢/$ıﬁRAYT+Sô¬6ˆ¯◊ÎŸˇoóÙøh\Ü	ù2Ü„Z}Ø∆®û≥R(A„â$AŸâI@nU\Ø2^ ÇUAM62È_OjËækOö∂«XÛ5–•Kâ»ºíã
+®2/”QπÃ≈	Ê®\%"?V>∞Ör$Œg©aï6Sqs$Í»	…Õ‘∂i—√>≤‰ä[1’∑•ıí73Téñﬂ]√PK3'ô cYÏŒâ¨É>U]^Røf^õ¢_√®å‚R°Ù.ﬁ”øÑt|ßïº˘x1êÓ˙¢Î Öñ4/A)Ã≠QX∂∏)BàIÿh+nU]W⁄º«≤⁄$å¿0&Ú&æt˜˛éÅ⁄Ö8Teƒ°‚ÃÚÓôPƒ*üÕöÉ‘†d3¢ÛPx¬g´2˘g!˘¡)NU[¢ Á√ﬂ˙!ô§h{é'¨RÌˇ Ö}&Æƒ⁄5ºÎëßhj2Íã†t[PB®Qx¡ÂfÎ´ÿHXU[∞|'}v!!R
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] recog_create_http_message| leave ok.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] connect_server| enter, transport = 0x8171660, connect status = 1
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] connect_server| leave ok, connected already.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| enter.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| leave ok.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| enter.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| leave ok.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_http_message| http request message has been sent out successfully
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] recog_create_http_msg_for_sess| enter.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] mssp_encrypt_content| count md5.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:319
+
+----
+CL:167
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=grs&cver=4%2E0%2E0%2E1031&key=0fNE6iI8cjStb6wLQ9VuYTjkqFKYChwiqaE94u5bczapQ^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67oONsu/TuvMhy1d85/u1uu4=
+----
+CL:64
+CT:text/params
+CE:encrypt/0.2
+
+ËŒ%Ogh*Y^\YQ^PP_YP\ZQY]]]XP_]L]Y
+OTXYYYOT
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] recog_create_http_msg_for_sess| leave ok.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] connect_server| enter, transport = 0x8171660, connect status = 1
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] connect_server| leave ok, connected already.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| enter.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| leave ok.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| enter.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_message| leave ok.
+[2014/2/26-15:3:17 216][VBS][Px3850][Tx66a4] send_http_message| http request message has been sent out successfully
+[2014/2/26-15:3:17 239][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 239][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 239][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 239][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 239][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 239][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 239][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 240][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 285][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 285][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 285][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 285][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 285][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 285][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 285][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 285][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 331][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 331][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 331][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 331][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 331][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 331][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 331][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 331][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 378][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 378][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 378][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 378][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 378][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 378][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 378][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 378][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 424][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 424][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 424][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 424][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 424][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:3:17 424][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 424][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 424][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=2, len=1280.
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 471][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] QISRAudioWrite| enter, sessionID=38507b50879960953a804441964@recog, audioStatus=4, len=0.
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] recog_audio_write| enter.
+[2014/2/26-15:3:17 471][WAN][Px3850][Tx7b50] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] QISRGetResult| enter, sessionID=38507b50879960953a804441964@recog
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] recog_get_result| enter.
+[2014/2/26-15:3:17 471][VBS][Px3850][Tx7b50] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:3:17 572][VBS][Px3850][Tx7b50] QISRGetResult| enter, sessionID=38507b50879960953a804441964@recog
+[2014/2/26-15:3:17 572][VBS][Px3850][Tx7b50] recog_get_result| enter.
+[2014/2/26-15:3:17 572][VBS][Px3850][Tx7b50] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:3:17 672][VBS][Px3850][Tx7b50] QISRGetResult| enter, sessionID=38507b50879960953a804441964@recog
+[2014/2/26-15:3:17 672][VBS][Px3850][Tx7b50] recog_get_result| enter.
+[2014/2/26-15:3:17 672][VBS][Px3850][Tx7b50] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:3:17 772][VBS][Px3850][Tx7b50] QISRGetResult| enter, sessionID=38507b50879960953a804441964@recog
+[2014/2/26-15:3:17 772][VBS][Px3850][Tx7b50] recog_get_result| enter.
+[2014/2/26-15:3:17 772][VBS][Px3850][Tx7b50] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:3:17 873][VBS][Px3850][Tx7b50] QISRGetResult| enter, sessionID=38507b50879960953a804441964@recog
+[2014/2/26-15:3:17 873][VBS][Px3850][Tx7b50] recog_get_result| enter.
+[2014/2/26-15:3:17 873][VBS][Px3850][Tx7b50] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:3:17 931][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker| http response message:
+HTTP/1.1 200 OK
+Content-Length: 387
+X-Req-Date: 2014/02/26 15:03:18 43
+CT: mp;b=--
+CL: 387
+X-Res-Date: 2014/02/26 15:03:18 685
+
+----
+CL:175
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&rss=5&eps=3&rcs=2&key=0fNE6iI8cjStb6wLQ9VuYTjkqFKYChwiqaE94u5bczapQ^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67sirsDHtuaHny1d85/u1uu4=
+----
+CL:120
+CT:binary/recresult;charset=utf8
+CE:encrypt/0.2
+
+ä!´Ä¨÷,ªKKSEKKSYEKKSYEKKS2KKSYEK
+KS2KKSKç‘…KEK
+KSY4EKKSY9+E∂^AçKKSKäÈÎKEK
+KSY44
+[2014/2/26-15:3:17 931][VBS][Px3850][Tx66a4] mssp_decrypt_content| count md5.
+[2014/2/26-15:3:17 931][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker|  got response sync id 1.
+[2014/2/26-15:3:17 931][VBS][Px3850][Tx66a4] recog_parse_isr_rslt| result_str_size=109
+the recognition char-format result[id-1] is: 
+{"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"„ÄÇ","sc":0}]}]}
+[2014/2/26-15:3:17 931][VBS][Px3850][Tx66a4] no other result, push to first.
+[2014/2/26-15:3:17 931][INF][Px3850][Tx66a4] recog_msg_send_recv_worker| got first result.
+[2014/2/26-15:3:17 931][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker| http response message:
+HTTP/1.1 200 OK
+Content-Length: 163
+X-Req-Date: 2014/02/26 15:03:18 685
+CT: text/plain
+CL: 163
+X-Res-Date: 2014/02/26 15:03:18 694
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&rss=2&key=0fNE6iI8cjStb6wLQ9VuYTjkqFKYChwiqaE94u5bczapQ^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67hmhs5T9hkChy1d85/u1uu4=
+[2014/2/26-15:3:17 931][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker|  got response sync id 0.
+[2014/2/26-15:3:17 973][VBS][Px3850][Tx7b50] QISRGetResult| enter, sessionID=38507b50879960953a804441964@recog
+[2014/2/26-15:3:17 973][VBS][Px3850][Tx7b50] recog_get_result| enter.
+[2014/2/26-15:3:17 973][VBS][Px3850][Tx7b50] recog_get_result| leave ok, got result {"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"„ÄÇ","sc":0}]}]}, status = 5
+[2014/2/26-15:3:17 973][VBS][Px3850][Tx7b50] QISRGetResult| leave ok, result = {"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"„ÄÇ","sc":0}]}]}, status = 5, errorCode = 0.
+[2014/2/26-15:3:26 437][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=upflow, valueLen=128
+[2014/2/26-15:3:26 437][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=7668, len = 4
+[2014/2/26-15:3:26 437][VBS][Px3850][Tx7b50] QISRGetParam| enter, sessionID=38507b50879960953a804441964@recog, paramName=downflow, valueLen=128
+[2014/2/26-15:3:26 437][VBS][Px3850][Tx7b50] QISRGetParam| leave, ret=0, value=956, len = 3
+[2014/2/26-15:3:26 438][VBS][Px3850][Tx7b50] QISRSessionEnd| enter, sessionID=38507b50879960953a804441964@recog
+[2014/2/26-15:3:26 438][VBS][Px3850][Tx7b50] recog_session_end| enter.
+[2014/2/26-15:3:26 453][VBS][Px3850][Tx4dd4] recog_encode_speech_worker| leave ok.
+[2014/2/26-15:3:26 462][VBS][Px3850][Tx66a4] recog_msg_send_recv_worker| leave ok.
+[2014/2/26-15:3:26 480][VBS][Px3850][Tx7b50] disconnect_server| enter.
+[2014/2/26-15:3:26 480][VBS][Px3850][Tx7b50] disconnect_server| leave ok.
+[2014/2/26-15:3:26 480][INF][Px3850][Tx7b50] recog_session_end| size of data uploaded by user: 7668(bytes), downloaded by user: 956(bytes), effective data uploaded by user: 4941(bytes), effective data downloaded by user: 109(bytes).
+[2014/2/26-15:3:26 480][VBS][Px3850][Tx7b50] recog_session_end| leave ok.
+[2014/2/26-15:3:26 485][VBS][Px3850][Tx7b50] release_recognizer| enter.
+[2014/2/26-15:3:26 485][VBS][Px3850][Tx7b50] disconnect_server| enter.
+[2014/2/26-15:3:26 485][VBS][Px3850][Tx7b50] disconnect_server| leave ok.
+[2014/2/26-15:3:26 485][VBS][Px3850][Tx7b50] release_recognizer| leave ok.
+[2014/2/26-15:3:26 485][VBS][Px3850][Tx7b50] QISRSessionEnd| leave, reason: success.
+[2014/2/26-15:3:26 485][VBS][Px3850][Tx7b50] QISRSessionEnd| leave ok, ret = 0.
+[2014/2/26-15:3:26 488][VBS][Px3850][Tx4700] sock thread suspend...
+=============================================================
+	iFlyTEK log file
+	Subject : Running Information
+	Created-Time: 2014/2/26-15:5:6 380
+	Application: D:\Java\jdk1.6.0_45\bin\javaw.exe
+	PID: 31216 Version: 6.0.450.6
+=============================================================
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] parse_mngr_info| leave ok.
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] read_common_conf| read server_url from config file failed, use default value http://dev.voicecloud.cn/index.htm.
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] read_common_conf| read ip_dns from config file failed
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] read_common_conf| read timeout from config file failed, use default value 30000.
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] read_common_conf| read coding_libs from config file failed, use default value "speex.dll".
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] read_common_conf| read upload_err_log from config file failed, use the default value True.
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] read_common_conf| read svc_mode from config file failed, use the default value Svc_Net_Only.
+[2014/2/26-15:5:6 381][VBS][Px79f0][Tx7d1c] read_recog_conf| read recog_url from config file failed, use default value http://dev.voicecloud.cn/index.htm.
+[2014/2/26-15:5:6 381][WAN][Px79f0][Tx7d1c] read_recog_conf| read max_audio_size from config file failed, it should be specified in config string!otherwise it will use the default value 256KB.
+[2014/2/26-15:5:6 381][WAN][Px79f0][Tx7d1c] read_recog_conf| read coding_chunk_size from config file failed, it should be specified in config string!otherwise it will use the default value 5KB.
+[2014/2/26-15:5:6 381][WAN][Px79f0][Tx7d1c] read_recog_conf| read coding_package_size from config file failed, it should be specified in config string!otherwise it will use the default value 5KB.
+[2014/2/26-15:5:6 381][WAN][Px79f0][Tx7d1c] read_recog_conf| read vad_enable from config file failed, defaut value true will be used!
+[2014/2/26-15:5:6 381][WAN][Px79f0][Tx7d1c] read_recog_conf| read audio_coding from config file failed, it should be specified in config string!otherwise it will use the default string "speex-wb".
+[2014/2/26-15:5:6 381][WAN][Px79f0][Tx7d1c] read_recog_conf| read coding_level from config file failed, it should be specified in config string!otherwise it will use the default value 7.
+[2014/2/26-15:5:6 385][INF][Px79f0][Tx7d1c] init_sess_info| got total 1 performance info to upload.
+[2014/2/26-15:5:6 385][INF][Px79f0][Tx7d1c] create_conf_inst| the thread looking for best server has been activated successfully!
+[2014/2/26-15:5:6 385][VBS][Px79f0][Tx7d1c] register_conf| regist ok!
+[2014/2/26-15:5:6 385][VBS][Px79f0][Tx7d1c] QISRInit | leave, ret = 0
+[2014/2/26-15:5:6 392][VBS][Px79f0][Tx62b0] assist_parser_domain| enter!
+[2014/2/26-15:5:6 392][VBS][Px79f0][Tx3d68] socket_thread| socket thread activated.
+[2014/2/26-15:5:6 392][VBS][Px79f0][Tx3d68] sock thread suspend...
+[2014/2/26-15:5:6 494][INF][Px79f0][Tx62b0] get_ip_from_url| DNS: url input is dev.voicecloud.cn, corresponding ip is 59.107.24.7
+[2014/2/26-15:5:6 494][INF][Px79f0][Tx62b0] assist_parser_domain| get server ip 59.107.24.7 from server url http://dev.voicecloud.cn/index.htm
+[2014/2/26-15:5:6 494][VBS][Px79f0][Tx62b0] assist_parser_domain| leave!
+[2014/2/26-15:5:6 494][VBS][Px79f0][Tx62b0] assist_worker| suspend assist thread...
+[2014/2/26-15:5:10 186][VBS][Px79f0][Tx2770] QISRSessionBegin| enter, grammarList=NULL, params=ptt=0,sub=iat,auf=audio/L16;rate=8000,tte=gb2312,mac=B8-88-E3-F6-51-49,ssm=1,ent=sms8k,rse=utf-8,eos=1800,rst=json,vad_timeout=5000,aue=speex-wb,vad_speech_tail=1800
+[2014/2/26-15:5:10 186][VBS][Px79f0][Tx2770] new_recognizer| enter.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] new_recognizer| leave ok.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] read_uid| enter.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] recog_session_begin| enter,last_net_type=7.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx62b0] assist_worker| assist thread resumed.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx62b0] assist_worker| suspend assist thread...
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] recog_session_begin| the audio_encoding thread has been activated!
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] recog_create_http_msg_for_sess| enter.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] add_auth_info| enter. 
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] read_uid| enter.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] add_auth_info| auth info added
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] add_auth_info| validating info added
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] add_auth_info| leave ok.
+[2014/2/26-15:5:10 187][VBS][Px79f0][Tx2770] mssp_encrypt_content| count md5.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx2770] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:1838
+
+----
+CL:138
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&auf=audio%2FL16%3Brate%3D8000&ent=sms8k&aue=speex%2Dwb&cmd=ssb&cver=4%2E0%2E0%2E1031&key=0c4G4KJ85svIxdR/Ayfi6e4Q==
+----
+CL:528
+CT:text/log+perf
+CE:gzip,encrypt/0.2
+
+ùﬁ.]¨Tz∞¶xßÆ%∞zY¡:o]V¬ıwì∑¥Â'˚—¡\<)Ó`îìˇe⁄^Ä·ÿ‚CòX_êQs˛ó¨9Î|êAbZP+mm≥⁄{fqâ<I≠^Xø√Œˆ>ı∂éeLvÄßKÀ${ï„@Ó´†·πfo9ÌT)I‘#
+n	ƒqÇ≤dÙ?Ω“AD‹≥5#óF+5˙6ö	‰b˘l‚ÓüaØ«èΩFZy˝Ì.Àoä’œC˚éKπ∑.Î8ò ∏E<‚W√ÙWqTÌÏéƒ&@≠ä≈ÿÛT≈•ﬂeÁß≈vº‘«+—´ºÉ≤ÖD∫ÃZÍŸÓ7ãHË‡q`o∫¢ÂAX≠MxTP&ZH8SzΩ[õ	ò!UHÕ7Nˆ
+ÎU8≤D›l˙ôãRèÉ»ˆÔÇpﬁbÃ∫d¡C,˝á	óÛ[d⁄yñ¸áì°ΩBÙ*Ô˝ ^Ï+·¿;Eî√ï”çÏ∂⁄µ—W:ÅÏ4¿Yı]Ñ6Ø‰¡ê«œ4°ùªéâaVî®;Yc⁄5ë˝ÊÕ]óP˛+êìS.gZ,ÊmB¯Ø4Dnﬁ⁄YŒÑU„»¶{2ë#„ëÅ∂_ãSˆÚΩïÜ¡fLâ=}$˜‘ÄoØ@	ìîw
+ˇ0Qèã2£!çˆöK‹Ç.ÏqR‚+S}Sâ
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx2770] recog_create_http_msg_for_sess| leave ok.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx7380] recog_encode_speech_worker| enter.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx2770] recog_session_begin| the message-sending-receiving thread has been activated!
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx2770] recog_session_begin| leave ok.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx2770] QISRSessionBegin| leave ok.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker| enter.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx38c4] wait_dns| enter.
+[2014/2/26-15:5:10 188][INF][Px79f0][Tx38c4] wait_dns| net type changed, need redns.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 188][VBS][Px79f0][Tx38c4] redns_notify| notify ok!
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx38c4] redns_notify | resume assist thread...
+[2014/2/26-15:5:10 189][INF][Px79f0][Tx38c4] get_best_server| got server ip 59.107.24.7.
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx62b0] assist_worker| assist thread resumed.
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx38c4] wait_dns| leave ok.
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx62b0] assist_parser_domain| enter!
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker| server ip = 59.107.24.7.
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx38c4] connect_server_async| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 189][INF][Px79f0][Tx38c4] connect_server_async| connecting to 59.107.24.7:1028.
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx38c4] sock thread resume...
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx38c4] connect_server_async| leave ok.
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 189][INF][Px79f0][Tx2770] recog_audio_write| front point of speech input has been detected!
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 189][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 1, recStatus = 2
+[2014/2/26-15:5:10 190][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 190][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 192][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 192][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 192][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 192][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 192][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 192][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 197][INF][Px79f0][Tx62b0] get_ip_from_url| DNS: url input is dev.voicecloud.cn, corresponding ip is 59.107.24.7
+[2014/2/26-15:5:10 197][INF][Px79f0][Tx62b0] assist_parser_domain| get server ip 59.107.24.7 from server url http://dev.voicecloud.cn/index.htm
+[2014/2/26-15:5:10 197][VBS][Px79f0][Tx62b0] assist_parser_domain| leave!
+[2014/2/26-15:5:10 197][VBS][Px79f0][Tx62b0] assist_worker| suspend assist thread...
+[2014/2/26-15:5:10 209][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 209][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 229][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 229][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 238][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 238][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 238][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 238][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 238][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 238][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 239][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 239][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 239][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 239][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 239][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 239][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 249][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 249][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 269][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 269][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 285][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 286][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 286][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 286][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 286][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 289][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 289][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 309][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 309][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 329][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 329][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 333][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 334][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 334][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 334][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 334][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 349][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 349][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 369][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 369][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 380][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 380][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 380][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 380][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 380][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 380][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 381][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 381][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 381][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 381][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 0, recStatus = 2
+[2014/2/26-15:5:10 381][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=volume, valueLen=128
+[2014/2/26-15:5:10 381][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=0, len = 1
+[2014/2/26-15:5:10 389][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 389][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 409][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 409][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 427][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 427][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 427][INF][Px79f0][Tx2770] recog_audio_write| end point of speech input has been detected!
+[2014/2/26-15:5:10 427][VBS][Px79f0][Tx2770] recog_audio_write| leave, session mode ok.
+[2014/2/26-15:5:10 427][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 428][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 428][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 428][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 428][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 429][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 429][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 449][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 449][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 469][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 469][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 473][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 473][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 473][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 473][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 474][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 474][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 474][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 474][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 489][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 489][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 509][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 509][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 519][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 519][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 519][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 519][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 519][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 519][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 519][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 519][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 529][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 529][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 549][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 10114.
+[2014/2/26-15:5:10 549][VBS][Px79f0][Tx38c4] connect_server_check| enter, transport = 0x81b1660, connect status = 0
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] connect_server_check| leave ok, ret = 0.
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] connect_server| enter, transport = 0x81b1660, connect status = 1
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] connect_server| leave ok, connected already.
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:10 565][VBS][Px79f0][Tx38c4] send_http_message| http request message has been sent out successfully
+[2014/2/26-15:5:10 566][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 566][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 566][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 566][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 566][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 566][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 566][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 566][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 612][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 612][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 612][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 612][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 612][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 612][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 612][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 612][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 660][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 660][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 660][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 660][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 660][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 660][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 660][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 660][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 706][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 706][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 706][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 706][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 706][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=4800.
+[2014/2/26-15:5:10 706][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 706][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 706][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=2, len=1280.
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 754][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] QISRAudioWrite| enter, sessionID=79f02770880074281a804441964@recog, audioStatus=4, len=0.
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] recog_audio_write| enter.
+[2014/2/26-15:5:10 754][WAN][Px79f0][Tx2770] recog_audio_write| leave, end point of speech input had been detected!
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] QISRAudioWrite| leave ok, epStatus = 3, recStatus = 2
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:10 754][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:10 839][VBS][Px79f0][Tx38c4] recog_try_connect| got response message:
+HTTP/1.1 200 OK
+Content-Length: 172
+X-Req-Date: 2014/02/26 15:05:11 439
+CT: text/plain
+CL: 172
+X-Res-Date: 2014/02/26 15:05:11 476
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&uid=a804441964&key=0fNE6iI8cjStYC4ioQoIiVs2yVi5^EKbjYuDNiHOUXm9o^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67hmhs5T9hkChy1d85/u1uu4=
+[2014/2/26-15:5:10 839][VBS][Px79f0][Tx38c4] write_uid| enter.
+[2014/2/26-15:5:10 840][INF][Px79f0][Tx38c4] recog_msg_send_recv_worker| update net_rate as 609.756104
+[2014/2/26-15:5:10 840][INF][Px79f0][Tx38c4] recog_msg_send_recv_worker| session has been created successfully.
+[2014/2/26-15:5:10 840][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker| update first response sync id 0.
+[2014/2/26-15:5:10 840][INF][Px79f0][Tx38c4] recog_msg_send_recv_worker| build & send last audio block.
+[2014/2/26-15:5:10 840][VBS][Px79f0][Tx38c4] recog_create_http_message| enter.
+[2014/2/26-15:5:10 855][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:10 855][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:10 855][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] mssp_encrypt_content| count md5.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:5337
+
+----
+CL:173
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=auw&aus=5&cver=4%2E0%2E0%2E1031&key=0fNE6iI8cjStYC4ioQoIiVs2yVi5^EKbjYuDNiHOUXm9o^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67sirsDHtuaHny1d85/u1uu4=
+----
+CL:4952
+CT:audio/L16;rate=8000
+CE:speex-wb,encrypt/0.2
+
+¥çÌÛ;Ã@ÅÅÅÅÅÅÅÏ»ù+≤B!Ï®⁄åIÈ‚ÀJ®Wâäà`Ωå∂£Q‹ƒŸeXÂ…ŒUY¢y(Á–&·ˆ“@å-Mò∆ˆ}Kú’CF™Û~ÀBÆÍäùfÆ∏Z!Zûynì“=;#£ä∂⁄ª•
+æUY¢/$ıﬁRAYT+Sô¬6ˆ¯◊ÎŸˇoóÙøh\Ü	ù2Üä¨]ı0Ω≥R(A„â$AŸâI@nU\Ø2^ ÇUAM62È_OjËækOö∂«XÛ5–•Kâ»ºíã
+®2/”QπÃ≈	Ê®\%„¸i]∑~ ≠$Œg©aï6Sqs$Í»	…Õ‘∂i—√>≤‰ä[1’∑•ıí73Téñﬂ]√PK3'ô cYÏŒâ¨É>U]^Røf^õ¢_√®å‚¶xΩΩDgïÑt|ßïº˘x1êÓ˙¢Î Öñ4/A)Ã≠QX∂∏)BàIÿh+nU]W⁄º«≤⁄$å¿0&Ú&æt˜˛éÅ⁄Ö8Teƒ°‚ÃÚÓôÄõ⁄ßÎl†d3¢ÛPx¬g´2˘g!˘¡)NU[¢ Á√ﬂ˙!ô§h{é'¨RÌˇ Ö}&Æƒ⁄5ºÎëßhj2Íã†t[PB®Qx¡Âf„∆«ËîNU[∞|'}v!!R
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] recog_create_http_message| leave ok.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] connect_server| enter, transport = 0x81b1660, connect status = 1
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] connect_server| leave ok, connected already.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] send_http_message| http request message has been sent out successfully
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] recog_create_http_msg_for_sess| enter.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] mssp_encrypt_content| count md5.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:319
+
+----
+CL:167
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=grs&cver=4%2E0%2E0%2E1031&key=0fNE6iI8cjStYC4ioQoIiVs2yVi5^EKbjYuDNiHOUXm9o^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67oONsu/TuvMhy1d85/u1uu4=
+----
+CL:64
+CT:text/params
+CE:encrypt/0.2
+
+îW)]õAY[^^YQQYY^][QXQY]]]XP_]L]Y
+OTXYYYOT
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] recog_create_http_msg_for_sess| leave ok.
+[2014/2/26-15:5:10 857][VBS][Px79f0][Tx38c4] connect_server| enter, transport = 0x81b1660, connect status = 1
+[2014/2/26-15:5:10 858][VBS][Px79f0][Tx38c4] connect_server| leave ok, connected already.
+[2014/2/26-15:5:10 858][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:10 858][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:10 858][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:10 858][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:10 858][VBS][Px79f0][Tx38c4] send_http_message| http request message has been sent out successfully
+[2014/2/26-15:5:10 955][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:10 955][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:10 955][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 055][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 055][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 055][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 155][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 155][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 155][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 255][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 255][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 255][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 355][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 355][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 355][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 455][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 455][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 455][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 555][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 555][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 555][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 655][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 655][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 655][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 755][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 755][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 755][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 855][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 855][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 855][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:11 887][VBS][Px79f0][Tx38c4] recog_create_http_msg_for_sess| enter.
+[2014/2/26-15:5:11 887][VBS][Px79f0][Tx38c4] mssp_encrypt_content| count md5.
+[2014/2/26-15:5:11 887][VBS][Px79f0][Tx38c4] build_http_message| leave ok, http request message:
+POST /index.htm HTTP/1.1
+CT:mp;b=--
+Content-Length:319
+
+----
+CL:167
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=grs&cver=4%2E0%2E0%2E1031&key=0fNE6iI8cjStYC4ioQoIiVs2yVi5^EKbjYuDNiHOUXm9o^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67vweuiqmNJb/y1d85/u1uu4=
+----
+CL:64
+CT:text/params
+CE:encrypt/0.2
+
+îW)]õAY[^^YQQYY^][QXQY]]]XP_]L]Y
+OTXYYYOT
+[2014/2/26-15:5:11 887][VBS][Px79f0][Tx38c4] recog_create_http_msg_for_sess| leave ok.
+[2014/2/26-15:5:11 908][VBS][Px79f0][Tx38c4] connect_server| enter, transport = 0x81b1660, connect status = 1
+[2014/2/26-15:5:11 908][VBS][Px79f0][Tx38c4] connect_server| leave ok, connected already.
+[2014/2/26-15:5:11 908][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:11 908][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:11 908][VBS][Px79f0][Tx38c4] send_message| enter.
+[2014/2/26-15:5:11 908][VBS][Px79f0][Tx38c4] send_message| leave ok.
+[2014/2/26-15:5:11 908][VBS][Px79f0][Tx38c4] send_http_message| http request message has been sent out successfully
+[2014/2/26-15:5:11 955][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:11 955][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:11 955][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:12 055][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:12 055][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:12 055][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = NULL, status = 2, errorCode = 0.
+[2014/2/26-15:5:12 118][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker| http response message:
+HTTP/1.1 200 OK
+Content-Length: 379
+X-Req-Date: 2014/02/26 15:05:12 107
+CT: mp;b=--
+CL: 379
+X-Res-Date: 2014/02/26 15:05:12 752
+
+----
+CL:175
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&rss=5&eps=3&rcs=2&key=0fNE6iI8cjStYC4ioQoIiVs2yVi5^EKbjYuDNiHOUXm9o^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67sirsDHtuaHny1d85/u1uu4=
+----
+CL:112
+CT:binary/recresult;charset=utf8
+CE:encrypt/0.2
+
+±‡]$‹Ç‘åKKSEKKSYEKKSYEKKS2KKSYEK
+KS2KKSKç‘…KEK
+KSY4EKKSYZpI·cÙKKSKKEK
+KSY44
+[2014/2/26-15:5:12 118][VBS][Px79f0][Tx38c4] mssp_decrypt_content| count md5.
+[2014/2/26-15:5:12 118][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker|  got response sync id 1.
+[2014/2/26-15:5:12 118][VBS][Px79f0][Tx38c4] recog_parse_isr_rslt| result_str_size=106
+the recognition char-format result[id-1] is: 
+{"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"","sc":0}]}]}
+[2014/2/26-15:5:12 118][VBS][Px79f0][Tx38c4] no other result, push to first.
+[2014/2/26-15:5:12 118][INF][Px79f0][Tx38c4] recog_msg_send_recv_worker| got first result.
+[2014/2/26-15:5:12 118][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker| http response message:
+HTTP/1.1 200 OK
+Content-Length: 163
+X-Req-Date: 2014/02/26 15:05:12 752
+CT: text/plain
+CL: 163
+X-Res-Date: 2014/02/26 15:05:12 757
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&rss=2&key=0fNE6iI8cjStYC4ioQoIiVs2yVi5^EKbjYuDNiHOUXm9o^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67hmhs5T9hkChy1d85/u1uu4=
+[2014/2/26-15:5:12 118][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker|  got response sync id 0.
+[2014/2/26-15:5:12 155][VBS][Px79f0][Tx2770] QISRGetResult| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:12 155][VBS][Px79f0][Tx2770] recog_get_result| enter.
+[2014/2/26-15:5:12 155][VBS][Px79f0][Tx2770] recog_get_result| leave ok, got result {"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"","sc":0}]}]}, status = 5
+[2014/2/26-15:5:12 155][VBS][Px79f0][Tx2770] QISRGetResult| leave ok, result = {"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"‰Ω†","sc":0}]},{"bg":0,"cw":[{"w":"","sc":0}]}]}, status = 5, errorCode = 0.
+[2014/2/26-15:5:12 244][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker| http response message:
+HTTP/1.1 200 OK
+Content-Length: 163
+X-Req-Date: 2014/02/26 15:05:12 853
+CT: text/plain
+CL: 163
+X-Res-Date: 2014/02/26 15:05:12 865
+
+ver=MSSP+0%2E9&ret=0&cver=4%2E0%2E0%2E1031&rss=2&key=0fNE6iI8cjStYC4ioQoIiVs2yVi5^EKbjYuDNiHOUXm9o^HBywnTxKrfEIP0b/tsDQPfUC3i3WdJPLV3zn^7W67hmhs5T9hkChy1d85/u1uu4=
+[2014/2/26-15:5:12 244][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker|  got response sync id 0.
+[2014/2/26-15:5:21 124][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=upflow, valueLen=128
+[2014/2/26-15:5:21 124][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=8055, len = 4
+[2014/2/26-15:5:21 124][VBS][Px79f0][Tx2770] QISRGetParam| enter, sessionID=79f02770880074281a804441964@recog, paramName=downflow, valueLen=128
+[2014/2/26-15:5:21 124][VBS][Px79f0][Tx2770] QISRGetParam| leave, ret=0, value=1317, len = 4
+[2014/2/26-15:5:21 124][VBS][Px79f0][Tx2770] QISRSessionEnd| enter, sessionID=79f02770880074281a804441964@recog
+[2014/2/26-15:5:21 124][VBS][Px79f0][Tx2770] recog_session_end| enter.
+[2014/2/26-15:5:21 136][VBS][Px79f0][Tx7380] recog_encode_speech_worker| leave ok.
+[2014/2/26-15:5:21 159][VBS][Px79f0][Tx38c4] recog_msg_send_recv_worker| leave ok.
+[2014/2/26-15:5:21 166][VBS][Px79f0][Tx2770] disconnect_server| enter.
+[2014/2/26-15:5:21 166][VBS][Px79f0][Tx2770] disconnect_server| leave ok.
+[2014/2/26-15:5:21 166][INF][Px79f0][Tx2770] recog_session_end| size of data uploaded by user: 8055(bytes), downloaded by user: 1317(bytes), effective data uploaded by user: 4941(bytes), effective data downloaded by user: 106(bytes).
+[2014/2/26-15:5:21 166][VBS][Px79f0][Tx2770] recog_session_end| leave ok.
+[2014/2/26-15:5:21 171][VBS][Px79f0][Tx3d68] sock thread suspend...
+[2014/2/26-15:5:21 171][VBS][Px79f0][Tx2770] release_recognizer| enter.
+[2014/2/26-15:5:21 171][VBS][Px79f0][Tx2770] disconnect_server| enter.
+[2014/2/26-15:5:21 171][VBS][Px79f0][Tx2770] disconnect_server| leave ok.
+[2014/2/26-15:5:21 171][VBS][Px79f0][Tx2770] release_recognizer| leave ok.
+[2014/2/26-15:5:21 171][VBS][Px79f0][Tx2770] QISRSessionEnd| leave, reason: success.
+[2014/2/26-15:5:21 171][VBS][Px79f0][Tx2770] QISRSessionEnd| leave ok, ret = 0.

@@ -29,7 +29,7 @@ public class User extends IdEntity {
 	public User() {
 	}
 
-	public User(Long id) {
+	public User(String id) {
 		this.id = id;
 	}
 

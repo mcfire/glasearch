@@ -4,6 +4,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import edu.buct.glasearch.user.entity.User;
 
-public interface UserDao extends PagingAndSortingRepository<User, Long> {
+public interface UserDao extends PagingAndSortingRepository<User, String> {
 	User findByLoginName(String loginName);
 }

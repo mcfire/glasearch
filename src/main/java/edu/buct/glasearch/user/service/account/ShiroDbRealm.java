@@ -91,11 +91,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	 */
 	public static class ShiroUser implements Serializable {
 		private static final long serialVersionUID = -1373760761780840081L;
-		public Long id;
+		public String id;
 		public String loginName;
 		public String name;
 
-		public ShiroUser(Long id, String loginName, String name) {
+		public ShiroUser(String id, String loginName, String name) {
 			this.id = id;
 			this.loginName = loginName;
 			this.name = name;
