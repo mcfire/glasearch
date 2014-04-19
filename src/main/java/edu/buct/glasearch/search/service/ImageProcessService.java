@@ -18,6 +18,7 @@ import net.semanticmetadata.lire.ImageSearcher;
 import net.semanticmetadata.lire.ImageSearcherFactory;
 import net.semanticmetadata.lire.imageanalysis.bovw.SurfFeatureHistogramBuilder;
 import net.semanticmetadata.lire.impl.docbuilder.ChainedDocumentBuilder;
+import net.semanticmetadata.lire.impl.docbuilder.TextDocumentBuilder;
 import net.semanticmetadata.lire.impl.searcher.MSERImageSearcher;
 import net.semanticmetadata.lire.impl.searcher.SIFTImageSearcher;
 import net.semanticmetadata.lire.impl.searcher.SURFImageSearcher;
@@ -48,7 +49,7 @@ import com.iflytek.speech.SpeechError;
 import com.iflytek.speech.SpeechRecognizer;
 
 import edu.buct.glasearch.search.entity.ImageInformation;
-import edu.buct.glasearch.search.repository.ImageInformationDao;
+import edu.buct.glasearch.search.repository.ImageInfoDao;
 import edu.buct.glasearch.search.service.indexing.MetadataBuilder;
 
 //Spring Bean的标识.
@@ -57,10 +58,12 @@ import edu.buct.glasearch.search.service.indexing.MetadataBuilder;
 @Transactional
 public class ImageProcessService {
 	
-	private static Logger logger = LoggerFactory.getLogger(ImageProcessService.class);
+	private static Logger logger = LoggerFactory.getLogger(ImageProcessJobService.class);
 	
 	@Autowired
-	private ImageInformationDao imageInfoDao;
+	private ImageInfoDao imageInfoDao;
+	@Autowired
+	private ImageProcessJobService imageProcessJobService;
 	
 	@Autowired
 	ServletContext context;
@@ -160,7 +163,7 @@ public class ImageProcessService {
 	}
     
     public ImageInformation load(String id) {
-    	return imageInfoDao.findOne(id);
+    	return imageInfoDao.getById(id);
     }
     
     public String getImagePath() {
@@ -180,29 +183,31 @@ public class ImageProcessService {
     	writer.close();
     }
     
-    public void reindexImages() throws IOException {
+    public void reindexImages() throws Exception {
     	this.deleteAllIndex();
     	this.indexImages();
     }
 
-	public void indexImages() {
+	public void indexImages() throws Exception {
     	
         DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance();
         df.setMaximumFractionDigits(0);
         df.setMinimumFractionDigits(0);
         
-        Iterable<ImageInfo> imageInfoList = (Iterable)imageInfoDao.findAll();
+        Iterable<ImageInfo> imageInfoList = (Iterable)imageInfoDao.getAll();
 
         ParallelIndexer pin =
                 new net.semanticmetadata.lire.indexing.parallel.ParallelIndexer(
                 		8, getImagePath(), getIndexPath(), imageInfoList.iterator()){
                     @Override
-                    public void addBuilders(ChainedDocumentBuilder builder) {
+                    public void addBuilders(TextDocumentBuilder builder) {
                         builder.addBuilder(new MetadataBuilder());
                     }
                 };
         Thread t = new Thread(pin);
         t.start();
+        
+        imageProcessJobService.indeImages();;
 	}
 	
 	public List<ImageInformation> search(ImageInfo imageInfo, Integer method) throws IOException {

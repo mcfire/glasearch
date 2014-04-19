@@ -85,20 +85,28 @@ public class ImageSearchController {
 	
 	@RequestMapping(value="index")
 	public String index(Model model) {
-		imageProcessService.indexImages();
+		try {
+			imageProcessService.indexImages();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "redirect:main";
 	}
 	
 	@RequestMapping(value="reindex")
 	public String reindex(Model model) throws IOException {
-		imageProcessService.reindexImages();
+		try {
+			imageProcessService.reindexImages();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "redirect:main";
 	}
 	
 	@RequestMapping("image")
 	public void image(String id, Model model, HttpServletResponse response) throws IOException {
 		ImageInformation image = this.imageProcessService.load(id);
-		String imagePath = imageProcessService.getImagePath() + File.separator + image.getFileName();
+		String imagePath = imageProcessService.getImagePath() + File.separator + image.getId() + ".jpg";
 		
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_PNG);
