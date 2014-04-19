@@ -4,12 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import edu.buct.glasearch.user.entity.IdEntity;
-
 
 @Entity
 @Table(name = "image_info")
-public class ImageInformation extends IdEntity implements net.semanticmetadata.lire.indexing.parallel.ImageInfo {
+public class ImageInformation implements net.semanticmetadata.lire.indexing.parallel.ImageInfo {
+	
+	private String id;
 	
 	private String title;
 	
@@ -91,5 +91,13 @@ public class ImageInformation extends IdEntity implements net.semanticmetadata.l
 
 	public void setDistance(float distance) {
 		this.distance = distance;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

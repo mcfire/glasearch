@@ -17,7 +17,6 @@ import net.semanticmetadata.lire.ImageSearchHits;
 import net.semanticmetadata.lire.ImageSearcher;
 import net.semanticmetadata.lire.ImageSearcherFactory;
 import net.semanticmetadata.lire.imageanalysis.bovw.SurfFeatureHistogramBuilder;
-import net.semanticmetadata.lire.impl.docbuilder.ChainedDocumentBuilder;
 import net.semanticmetadata.lire.impl.docbuilder.TextDocumentBuilder;
 import net.semanticmetadata.lire.impl.searcher.MSERImageSearcher;
 import net.semanticmetadata.lire.impl.searcher.SIFTImageSearcher;

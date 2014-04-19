@@ -16,11 +16,12 @@
 
 	<description>Spring公共配置 </description>
 
-
 	<hdp:configuration>
 	  fs.default.name=${hd.fs}
 	  yarn.resourcemanager.address=${hd.rm}
 	  mapreduce.framework.name=${mr.fw}
+	  zk-quorum=${hbase.host}
+	  zk-port=${hbase.port}
 	</hdp:configuration>
 
 <!-- 
@@ -34,17 +35,11 @@
 -->
  
 	<!-- <job-runner id="runner" run-at-startup="true" job-ref="wordcountJob" /> -->  
-     
-	<!-- specify ZooKeeper host/port -->
-	<hdp:hbase-configuration stop-proxy="false" delete-connection="true">
-	  zk-quorum=${hbase.host}
-	  zk-port=${hbase.port}
-	</hdp:hbase-configuration>
 	
 	<bean id="htemplate" class="org.springframework.data.hadoop.hbase.HbaseTemplate" >
-		<property name="configuration-ref" value="hbaseConfiguration" />
+		<property name="configuration" ref="hadoopConfiguration" />
 	</bean>
-
+		
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
 	<context:component-scan base-package="edu.buct.glasearch">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -56,123 +51,10 @@
 		<property name="defaultEncoding" value="utf-8"/>
 	</bean>
 
-	<!-- Jpa Entity Manager 配置 -->
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
-		<property name="dataSource" ref="dataSource"/>
-		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
-		<property name="packagesToScan" value="edu.buct.glasearch"/>
-		<property name="jpaProperties">
-			<props>
-				<!-- 命名规则 My_NAME->MyName -->
-				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
-			</props>
-		</property>
-	</bean>
-	
-	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-		<property name="databasePlatform">
-			<bean factory-method="getDialect" class="org.springside.modules.persistence.Hibernates">
-				<constructor-arg ref="dataSource"/>
-			</bean>
-		</property>
-	</bean>
-
-	<!-- Spring Data Jpa配置 -->
- 	<jpa:repositories base-package="edu.buct.glasearch"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory"/>
-   
-	<!-- Jpa 事务配置 -->
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory"/>
-	</bean>
-
-	<!-- 使用annotation定义事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
-
 	<!-- JSR303 Validator定义 -->
  	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 	
-	<!-- production环境 -->
- 	<beans profile="production">
- 		<context:property-placeholder ignore-unresolvable="true"
-			location="classpath*:/application.properties" />	
-		
-		<!-- 数据源配置, 使用Tomcat JDBC连接池 -->
-		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-			<!-- Connection Info -->
-			<property name="driverClassName" value="${jdbc.driver}" />
-			<property name="url" value="${jdbc.url}" />
-			<property name="username" value="${jdbc.username}" />
-			<property name="password" value="${jdbc.password}" />
-		
-			<!-- Connection Pooling Info -->
-			<property name="maxActive" value="${jdbc.pool.maxActive}" />
-			<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
-			<property name="defaultAutoCommit" value="false" />
-			<!-- 连接Idle半个小时后超时，每15分钟检查一次 -->
-			<property name="timeBetweenEvictionRunsMillis" value="900000" />
-			<property name="minEvictableIdleTimeMillis" value="1800000" />
-		</bean>
-		
-		<!-- 数据源配置,使用应用服务器的数据库连接池 -->
-		<!--<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/ExampleDB" />-->
-	</beans>
-	
-	<!-- local development环境 -->
-	<beans profile="development">
-		<context:property-placeholder ignore-resource-not-found="true"
-			location="classpath*:/application.properties,
-          			  classpath*:/application.development.properties" />	
+	<context:property-placeholder ignore-unresolvable="true"
+		location="classpath*:/application.properties" />	
 
-		<!-- Tomcat JDBC连接池 -->
-		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-			<property name="driverClassName" value="${jdbc.driver}" />
-			<property name="url" value="${jdbc.url}" />
-			<property name="username" value="${jdbc.username}" />
-			<property name="password" value="${jdbc.password}" />
-			<property name="defaultAutoCommit" value="false" />
-		</bean>
-	</beans>
-	
-	<!-- functional test 环境 -->
-	<beans profile="functional">
-		<context:property-placeholder ignore-resource-not-found="true"
-			location="classpath*:/application.properties,
-          			  classpath*:/application.functional.properties,
-          			  classpath*:/application.functional-local.properties" />	
-
-		<!-- Tomcat JDBC连接池 -->
-		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-			<property name="driverClassName" value="${jdbc.driver}" />
-			<property name="url" value="${jdbc.url}" />
-			<property name="username" value="${jdbc.username}" />
-			<property name="password" value="${jdbc.password}" />
-			<property name="defaultAutoCommit" value="false" />
-		</bean>
-
-		<!-- 初始化数据表结构 -->
-		<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
-			<jdbc:script location="classpath:sql/${db.type}/schema.sql" />
-		</jdbc:initialize-database>	
-	</beans>
-	
-	<!-- unit test环境 -->
-	<beans profile="test">
-	 	<context:property-placeholder ignore-resource-not-found="true"
-			location="classpath*:/application.properties,
-          			  classpath*:/application.test.properties" />	
-		
-		<!-- Spring Simple连接池 -->
-		<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-			<property name="driverClass" value="${jdbc.driver}" />
-			<property name="url" value="${jdbc.url}" />
-			<property name="username" value="${jdbc.username}" />
-			<property name="password" value="${jdbc.password}" />
-		</bean>
-
-		<!-- 初始化数据表结构 与默认数据-->
-		<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
-			<jdbc:script location="classpath:sql/h2/schema.sql" />
-			<jdbc:script location="classpath:data/h2/import-data.sql" encoding="UTF-8"/>
-		</jdbc:initialize-database>
-	</beans>
 </beans>
