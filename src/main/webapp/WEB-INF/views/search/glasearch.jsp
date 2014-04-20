@@ -13,8 +13,7 @@
 		<fieldset>
 			<legend><small>图像搜索管理</small></legend>
 			<div class="control-group">
-				<input id="reindex-btn" class="btn" type="button" value="重新建立图像索引"/>
-				<input id="index-btn" class="btn" type="button" value="增量建立图像索引"/>
+				<input id="reindex-btn" class="btn" type="button" value="建立图像索引"/>
 			</div>
 			<div class="control-group">
 				图像文件：<input type="file" class="span3" name="file" value="${file}"/><br/>

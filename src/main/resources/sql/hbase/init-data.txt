@@ -1,0 +1,58 @@
+create 'imageinfo','i'
+create 'imageresult','i'
+
+
+put 'imageinfo', '1', 'i:title', '北京化工大学北校区，北区主楼正面'
+put 'imageinfo', '1', 'i:file', '1.jpg'
+put 'imageinfo', '1', 'i:lat', '40.221323682042'
+put 'imageinfo', '1', 'i:lng', '116.26482929799'
+
+put 'imageinfo', '2', 'i:title', '故宫'
+put 'imageinfo', '2', 'i:file', '2.jpg'
+put 'imageinfo', '2', 'i:lat', '39.922030512789'
+put 'imageinfo', '2', 'i:lng', '116.40348967041'
+
+put 'imageinfo', '3', 'i:title', '欢乐谷'
+put 'imageinfo', '3', 'i:file', '3.jpg'
+put 'imageinfo', '3', 'i:lat', '40.003666544492'
+put 'imageinfo', '3', 'i:lng', '116.40012892983'
+
+put 'imageinfo', '4', 'i:title', '玲珑塔'
+put 'imageinfo', '4', 'i:file', '4.jpg'
+put 'imageinfo', '4', 'i:lat', '40.003666544492'
+put 'imageinfo', '4', 'i:lng', '116.40012892983'
+
+put 'imageinfo', '5', 'i:title', '母校之光'
+put 'imageinfo', '5', 'i:file', '5.jpg'
+put 'imageinfo', '5', 'i:lat', '39.97711428423'
+put 'imageinfo', '5', 'i:lng', '116.42750910211'
+
+put 'imageinfo', '6', 'i:title', '鸟巢'
+put 'imageinfo', '6', 'i:file', '6.jpg'
+put 'imageinfo', '6', 'i:lat', '39.999379'
+put 'imageinfo', '6', 'i:lng', '116.402875'
+
+put 'imageinfo', '7', 'i:title', '水立方'
+put 'imageinfo', '7', 'i:file', '7.jpg'
+put 'imageinfo', '7', 'i:lat', '39.999316'
+put 'imageinfo', '7', 'i:lng', '116.396699'
+
+put 'imageinfo', '8', 'i:title', '天坛'
+put 'imageinfo', '8', 'i:file', '8.jpg'
+put 'imageinfo', '8', 'i:lat', '39.887699'
+put 'imageinfo', '8', 'i:lng', '116.417873'
+
+put 'imageinfo', '9', 'i:title', '北京化工大学校徽'
+put 'imageinfo', '9', 'i:file', '9.jpg'
+put 'imageinfo', '9', 'i:lat', '39.976028'
+put 'imageinfo', '9', 'i:lng', '116.427902'
+
+put 'imageinfo', '10', 'i:title', '北京化工大学东校区'
+put 'imageinfo', '10', 'i:file', '10.jpg'
+put 'imageinfo', '10', 'i:lat', '39.976028'
+put 'imageinfo', '10', 'i:lng', '116.427902'
+
+put 'imageinfo', '11', 'i:title', 'china national opera'
+put 'imageinfo', '11', 'i:file', '11.jpg'
+put 'imageinfo', '11', 'i:lat', '39.911079'
+put 'imageinfo', '11', 'i:lng', '116.396137'
