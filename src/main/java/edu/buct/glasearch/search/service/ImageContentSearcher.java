@@ -16,12 +16,15 @@ import net.semanticmetadata.lire.utils.DocumentUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import edu.buct.glasearch.search.entity.ImageInformation;
 import edu.buct.glasearch.search.jobs.ImageSearchJob.FeatureList;
 import edu.buct.glasearch.search.jobs.ImageSearchJob.FeatureObject;
 import edu.buct.glasearch.search.repository.ImageInfoDao;
 
+//Spring Bean的标识.
+@Component
 public class ImageContentSearcher extends AbstractImageSearcher {
 	
 	@Autowired

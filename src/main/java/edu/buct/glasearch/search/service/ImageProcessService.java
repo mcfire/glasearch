@@ -63,6 +63,8 @@ public class ImageProcessService {
 	private ImageInfoDao imageInfoDao;
 	@Autowired
 	private ImageProcessJobService imageProcessJobService;
+	@Autowired
+	private ImageContentSearcher imageContentSearcher;
 	
 	@Autowired
 	ServletContext context;
@@ -257,6 +259,7 @@ public class ImageProcessService {
         ImageSearcher searcher = ImageSearcherFactory.createColorLayoutImageSearcher(numResults);
         if (method == 0) {
         	List<ImageSearcher> searchers = new ArrayList<ImageSearcher>();
+        	
         	ImageSearcher edgeHistogramSearcher = ImageSearcherFactory.
 					createEdgeHistogramImageSearcher(numResults);
         	
@@ -271,9 +274,10 @@ public class ImageProcessService {
 			ImageSearcher locationBasedSearcher = ImageSearcherFactory.
 					createLocationBasedSearcher(numResults);
 			locationBasedSearcher.setWeight(0.8f);
-			
-			searchers.add(edgeHistogramSearcher);
-			searchers.add(colorHistogramSearcher);
+
+			searchers.add(imageContentSearcher);
+			//searchers.add(edgeHistogramSearcher);
+			//searchers.add(colorHistogramSearcher);
 			searchers.add(keyWordsSearcher);
 			searchers.add(locationBasedSearcher);
 			

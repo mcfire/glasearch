@@ -13,8 +13,8 @@ import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.mapreduce.MultiTableOutputFormat;
-import org.apache.hadoop.hbase.mapreduce.TableInputFormat;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
@@ -29,6 +29,8 @@ import com.google.gson.Gson;
 import edu.buct.glasearch.search.jobs.ImageIndexJob;
 import edu.buct.glasearch.search.jobs.ImageSearchJob;
 import edu.buct.glasearch.search.jobs.ImageSearchJob.FeatureList;
+import edu.buct.glasearch.search.jobs.ImageSearchJob.Map;
+import edu.buct.glasearch.search.jobs.ImageSearchJob.Reduce;
 
 //Spring Bean的标识.
 @Component
@@ -47,16 +49,32 @@ public class ImageProcessJobService {
 	private Job configureIndexJob(Configuration conf)
 			throws IOException {
 
+		TableMapReduceUtil.addDependencyJars(conf, ImageIndexJob.class, LireFeature.class);
+		
 		JobConf jobConf = new JobConf(conf);
 		jobConf.setJobName("image-index");
 		
-		jobConf.set(TableInputFormat.INPUT_TABLE, ImageSearchJob.imageInfoTable);
 		Job job = new Job(jobConf);
 		job.setJarByClass(ImageIndexJob.class);
-		job.setMapperClass(ImageIndexJob.class);
+		
+		Scan scan = new Scan();
+		scan.setCaching(500);        // 1 is the default in Scan, which will be bad for MapReduce jobs
+		scan.setCacheBlocks(false);  // don't set to true for MR jobs
+		// set other scan attrs
+		
+		TableMapReduceUtil.initTableMapperJob(
+				ImageSearchJob.imageInfoTable,        // input table
+				scan,               // Scan instance to control CF and attribute selection
+				ImageIndexJob.class,     // mapper class
+				null,         // mapper output key
+				null,  // mapper output value
+				job);
+		
+		TableMapReduceUtil.initTableReducerJob(
+				ImageSearchJob.imageInfoTable,      // output table
+				null,             // reducer class
+				job);
 		job.setNumReduceTasks(0);
-		job.setInputFormatClass(TableInputFormat.class);
-		job.setOutputFormatClass(MultiTableOutputFormat.class);
 		return job;
 	}
 
@@ -73,17 +91,33 @@ public class ImageProcessJobService {
 	private Job configureSearchJob(Configuration conf)
 			throws IOException {
 
+		//important: use this method to add job and it's dependency jar
+		TableMapReduceUtil.addDependencyJars(conf, ImageSearchJob.class, LireFeature.class, Gson.class);
+		
 		JobConf jobConf = new JobConf(conf);
 		jobConf.setJobName("image-search");
 		
-		jobConf.set(TableInputFormat.INPUT_TABLE, ImageSearchJob.imageInfoTable);
 		Job job = new Job(jobConf);
-		job.setJarByClass(ImageSearchJob.class);
-		job.setMapperClass(ImageSearchJob.Map.class);
-		job.setReducerClass(ImageSearchJob.Reduce.class);
-		job.setInputFormatClass(TableInputFormat.class);
-		job.setMapOutputKeyClass(Text.class);
-		job.setOutputFormatClass(MultiTableOutputFormat.class);
+		job.setJarByClass(ImageIndexJob.class);
+		
+		Scan scan = new Scan();
+		scan.setCaching(500);        // 1 is the default in Scan, which will be bad for MapReduce jobs
+		scan.setCacheBlocks(false);  // don't set to true for MR jobs
+		// set other scan attrs
+		
+		TableMapReduceUtil.initTableMapperJob(
+				ImageSearchJob.imageInfoTable,        // input table
+				scan,               // Scan instance to control CF and attribute selection
+				Map.class,     // mapper class
+				Text.class,         // mapper output key
+				Text.class,  // mapper output value
+				job);
+		
+		TableMapReduceUtil.initTableReducerJob(
+				ImageSearchJob.imageResultTable,      // output table
+				Reduce.class,             // reducer class
+				job);
+		job.setNumReduceTasks(1);
 		return job;
 	}
 
