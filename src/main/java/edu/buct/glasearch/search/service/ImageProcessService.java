@@ -101,16 +101,19 @@ public class ImageProcessService {
 	//FIXME change to event listener model
     public String voiceToText(InputStream voiceData) throws Exception {
 
+    	//是否已经完成语音识别
     	recognizeFinished = false;
     	
+    	//构建讯飞语音接口的参数
     	final StringBuilder sb = new StringBuilder();
     	SpeechRecognizer recognizer = SpeechRecognizer.createRecognizer("appid=52a1404c");
 		recognizer.setSampleRate(RATE.rate8k);
+		//调用语音识别接口
 		recognizer.recognizeAudio(new RecognizerListener() {
 
 			@Override
 			public void onResults(ArrayList result, boolean arg1) {
-				
+				//读取文本格式的语音识别结果
 				Iterator itor = result.iterator();
 				while (itor.hasNext()) {
 					RecognizerResult r = (RecognizerResult)itor.next();
@@ -134,9 +137,11 @@ public class ImageProcessService {
 			public void onVolumeChanged(int arg0) {}				
 		}, IOUtils.toByteArray(voiceData), "sms", "asr_ptt=0", "");
 
+		//持续等待语音识别完成
 		while (!recognizeFinished) {
 			Thread.sleep(100);
 		}
+		//返回语音识别结果
 		return sb.length() == 0 ? null : sb.toString();
 	}
 	
