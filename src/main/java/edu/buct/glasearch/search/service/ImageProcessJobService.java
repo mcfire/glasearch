@@ -49,32 +49,35 @@ public class ImageProcessJobService {
 	private Job configureIndexJob(Configuration conf)
 			throws IOException {
 
+		//利用此工具方法将相关jar包加入Hadoop引用，否则需手工引用
 		TableMapReduceUtil.addDependencyJars(conf, ImageIndexJob.class, LireFeature.class);
 		
+		//设置任务名称
 		JobConf jobConf = new JobConf(conf);
 		jobConf.setJobName("image-index");
 		
+		//创建Hadoop的MapReduce任务
 		Job job = new Job(jobConf);
 		job.setJarByClass(ImageIndexJob.class);
 		
 		Scan scan = new Scan();
-		scan.setCaching(500);        // 1 is the default in Scan, which will be bad for MapReduce jobs
-		scan.setCacheBlocks(false);  // don't set to true for MR jobs
-		// set other scan attrs
+		scan.setCaching(500);
+		scan.setCacheBlocks(false);
 		
+		//利用HBase提供的工具方法初始化任务对象
 		TableMapReduceUtil.initTableMapperJob(
-				ImageSearchJob.imageInfoTable,        // input table
-				scan,               // Scan instance to control CF and attribute selection
-				ImageIndexJob.class,     // mapper class
-				null,         // mapper output key
-				null,  // mapper output value
+				ImageSearchJob.imageInfoTable,  //输入数据所在的表
+				scan,               			//用于读取数据表的扫描对象
+				ImageIndexJob.class,     		//Map操作所在的类
+				null,         					//Map操作的输出Key类型
+				null,  							//Map操作的输出Value类型
 				job);
 		
 		TableMapReduceUtil.initTableReducerJob(
-				ImageSearchJob.imageInfoTable,      // output table
-				null,             // reducer class
+				ImageSearchJob.imageInfoTable,      //数据输出表
+				null,             					//Reduce操作所在的类
 				job);
-		job.setNumReduceTasks(0);
+		job.setNumReduceTasks(0);					//设置为没有Reduce类
 		return job;
 	}
 
@@ -91,9 +94,10 @@ public class ImageProcessJobService {
 	private Job configureSearchJob(Configuration conf)
 			throws IOException {
 
-		//important: use this method to add job and it's dependency jar
+		//利用此工具方法将相关jar包加入Hadoop引用，否则需手工引用
 		TableMapReduceUtil.addDependencyJars(conf, ImageSearchJob.class, LireFeature.class, Gson.class);
 		
+		//设置任务名称
 		JobConf jobConf = new JobConf(conf);
 		jobConf.setJobName("image-search");
 		
@@ -105,32 +109,36 @@ public class ImageProcessJobService {
 		scan.setCacheBlocks(false);  // don't set to true for MR jobs
 		// set other scan attrs
 		
+		//利用HBase提供的工具方法初始化任务对象
 		TableMapReduceUtil.initTableMapperJob(
-				ImageSearchJob.imageInfoTable,        // input table
-				scan,               // Scan instance to control CF and attribute selection
-				Map.class,     // mapper class
-				Text.class,         // mapper output key
-				Text.class,  // mapper output value
+				ImageSearchJob.imageInfoTable,	//输入数据所在的表
+				scan,               			//用于读取数据表的扫描对象
+				Map.class,     					//Map操作所在的类
+				Text.class,         			//Map操作的输出Key类型
+				Text.class,  					//Map操作的输出Value类型
 				job);
 		
 		TableMapReduceUtil.initTableReducerJob(
-				ImageSearchJob.imageResultTable,      // output table
-				Reduce.class,             // reducer class
+				ImageSearchJob.imageResultTable,//数据输出表
+				Reduce.class,             		//Reduce操作所在的类
 				job);
-		job.setNumReduceTasks(1);
+		job.setNumReduceTasks(1);				//设置为拥有一个Reduce类
 		return job;
 	}
 
 	public void searchImage(BufferedImage image, 
 			FeatureList outColorFeatureResult, FeatureList outEdgeFeatureResult) throws Exception {
 		
+		//提取待检索图像的颜色直翻图和边缘直方图特征
 		LireFeature colorFeature = new SimpleColorHistogram();
 		colorFeature.extract(image);
 		LireFeature edgeFeature = new EdgeHistogram();
 		edgeFeature.extract(image);
 
+		//生成检索信息表的rowId
 		String rowId = UUID.randomUUID().toString();
 
+		//将待检索图像特征存入图像信息表
 	    HTable table = new HTable(conf, ImageSearchJob.imageResultTable);
 	    Put featuresPut = new Put(rowId.getBytes());
 	    featuresPut.add(ImageSearchJob.COLUMN_FAMILY_BYTES, 
@@ -141,24 +149,30 @@ public class ImageProcessJobService {
 	    
 	    conf.set(ImageSearchJob.SEARCH_ROWID, rowId);
 	    
+	    //配置检索任务
 		Job job = configureSearchJob(conf);
 
+		//执行检索任务
 		boolean isSuccess = job.waitForCompletion(true);
 		
 		if (isSuccess) {
+			//若检索成功，则提取检索结果
 			Gson gson = new Gson();
 			
+			//根据rowId提取检索结果
 			Get featuresGet = new Get(rowId.getBytes());
 			Result result = table.get(featuresGet);
 			byte[] colorFeatureResultBytes = result.getValue(
 					ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.COLOR_FEATURE_RESULT_COLUMN);
 			String colorFeatureResultJson = new String(colorFeatureResultBytes);
+			//将检索结果由JSON格式转换为对象列表格式
 			FeatureList colorFeatureResult = gson.fromJson(colorFeatureResultJson, FeatureList.class);
 			outColorFeatureResult.setResult(colorFeatureResult.getResult());
 			
 			byte[] edgeFeatureResultBytes = result.getValue(
 					ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.EDGE_FEATURE_RESULT_COLUMN);
 			String edgeFeatureResultJson = new String(edgeFeatureResultBytes);
+			//将检索结果由JSON格式转换为对象列表格式
 			FeatureList edgeFeatureResult = gson.fromJson(edgeFeatureResultJson, FeatureList.class);
 			outEdgeFeatureResult.setResult(edgeFeatureResult.getResult());
 		}
