@@ -106,7 +106,7 @@ public class ImageSearchController {
 	@RequestMapping("image")
 	public void image(String id, Model model, HttpServletResponse response) throws IOException {
 		ImageInformation image = this.imageProcessService.load(id);
-		String imagePath = imageProcessService.getImagePath() + File.separator + image.getId() + ".jpg";
+		String imagePath = imageProcessService.getImagePath() + image.getFileName();
 		
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_PNG);

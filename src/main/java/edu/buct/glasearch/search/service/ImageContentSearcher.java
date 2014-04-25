@@ -31,6 +31,8 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 	private ImageProcessJobService imageProcessJobService;
 	@Autowired
 	private ImageInfoDao imageInfoDao;
+	
+	private int resultCount = 20;
 
 	@Override
 	public ImageSearchHits search(BufferedImage image, IndexReader reader)
@@ -40,7 +42,7 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 		FeatureList outEdgeFeatureResult = new FeatureList();
 		
 		try {
-			imageProcessJobService.searchImage(image, outColorFeatureResult, outEdgeFeatureResult);
+			imageProcessJobService.searchImage(image, resultCount, outColorFeatureResult, outEdgeFeatureResult);
 		} catch (Exception e) {
 			throw new IOException(e);
 		}
@@ -76,6 +78,14 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 	public ImageDuplicates findDuplicates(IndexReader reader)
 			throws IOException {
 		return null;
+	}
+
+	public int getResultCount() {
+		return resultCount;
+	}
+
+	public void setResultCount(int resultCount) {
+		this.resultCount = resultCount;
 	}
 
 }

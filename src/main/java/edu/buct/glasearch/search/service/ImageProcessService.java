@@ -27,6 +27,7 @@ import net.semanticmetadata.lire.indexing.parallel.ParallelIndexer;
 import net.semanticmetadata.lire.utils.LuceneUtils;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -59,6 +60,8 @@ public class ImageProcessService {
 	
 	private static Logger logger = LoggerFactory.getLogger(ImageProcessJobService.class);
 	
+	private static final String imagePath = "/root/development/data/";
+	
 	@Autowired
 	private ImageInfoDao imageInfoDao;
 	@Autowired
@@ -71,7 +74,7 @@ public class ImageProcessService {
 	
 	boolean recognizeFinished = false;
 	
-    int numResults = 50;
+    int numResults = 20;
     int method = 2;
     
     public ImageProcessService() {
@@ -173,7 +176,7 @@ public class ImageProcessService {
     }
     
     public String getImagePath() {
-    	return context.getRealPath("images-data");
+    	return imagePath;
     }
     
     public String getIndexPath() {
@@ -226,7 +229,7 @@ public class ImageProcessService {
         int numDocs = reader.numDocs();
         logger.info("numDocs = " + numDocs);
 
-        ImageSearcher searcher = getSearcher();
+        ImageSearcher searcher = getSearcher(imageInfo);
         ImageSearchHits hits = searcher.search(
         		ImageIO.read(new ByteArrayInputStream(imageInfo.getBuffer())), imageInfo, reader);
         reader.close();
@@ -259,32 +262,42 @@ public class ImageProcessService {
         return imageList;
 	}
 
-    private ImageSearcher getSearcher() {
+    private ImageSearcher getSearcher(ImageInfo imageInfo) {
 
         ImageSearcher searcher = ImageSearcherFactory.createColorLayoutImageSearcher(numResults);
         if (method == 0) {
+        	int singleSeacherResultCount = numResults * 2;
         	List<ImageSearcher> searchers = new ArrayList<ImageSearcher>();
         	
-        	ImageSearcher edgeHistogramSearcher = ImageSearcherFactory.
-					createEdgeHistogramImageSearcher(numResults);
+//        	ImageSearcher edgeHistogramSearcher = ImageSearcherFactory.
+//					createEdgeHistogramImageSearcher(numResults);
+//        	
+//        	ImageSearcher colorHistogramSearcher = ImageSearcherFactory.
+//        			createColorHistogramImageSearcher(numResults);
+//        	colorHistogramSearcher.setWeight(0.6f);
         	
-        	ImageSearcher colorHistogramSearcher = ImageSearcherFactory.
-        			createColorHistogramImageSearcher(numResults);
-        	colorHistogramSearcher.setWeight(0.6f);
+        	imageContentSearcher.setResultCount(singleSeacherResultCount);
 
 			ImageSearcher keyWordsSearcher = ImageSearcherFactory.
-					createKeyWordsSearcher(numResults);
+					createKeyWordsSearcher(singleSeacherResultCount);
 			
 			
 			ImageSearcher locationBasedSearcher = ImageSearcherFactory.
-					createLocationBasedSearcher(numResults);
+					createLocationBasedSearcher(singleSeacherResultCount);
 			locationBasedSearcher.setWeight(0.8f);
 
-			searchers.add(imageContentSearcher);
+			if (imageInfo.getBuffer() != null && imageInfo.getBuffer().length > 0) {
+				searchers.add(imageContentSearcher);
+			}
 			//searchers.add(edgeHistogramSearcher);
 			//searchers.add(colorHistogramSearcher);
-			searchers.add(keyWordsSearcher);
-			searchers.add(locationBasedSearcher);
+			if (!StringUtils.isEmpty(imageInfo.getTitle())) {
+				searchers.add(keyWordsSearcher);
+			}
+			if (!StringUtils.isEmpty(imageInfo.getLat()) 
+				&& !StringUtils.isEmpty(imageInfo.getLng())) {
+				searchers.add(locationBasedSearcher);
+			}
 			
             searcher = ImageSearcherFactory.createMultipleVoterImageSearcher(numResults, searchers);
             

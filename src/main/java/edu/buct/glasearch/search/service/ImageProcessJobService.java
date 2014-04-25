@@ -15,6 +15,7 @@ import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
@@ -39,6 +40,9 @@ import edu.buct.glasearch.search.jobs.ImageSearchJob.Reduce;
 public class ImageProcessJobService {
 	
 	private static Logger logger = LoggerFactory.getLogger(ImageProcessService.class);
+	
+	private static final String START_ROW = "39";
+	private static final String STOP_ROW = "39-393300";
 	
 	@Autowired
 	Configuration conf;
@@ -91,7 +95,7 @@ public class ImageProcessJobService {
 	/**
 	 * Job configuration.
 	 */
-	private Job configureSearchJob(Configuration conf)
+	private Job configureSearchJob(Configuration conf, byte[] startRow, byte[] stopRow)
 			throws IOException {
 
 		//利用此工具方法将相关jar包加入Hadoop引用，否则需手工引用
@@ -107,6 +111,8 @@ public class ImageProcessJobService {
 		Scan scan = new Scan();
 		scan.setCaching(500);        // 1 is the default in Scan, which will be bad for MapReduce jobs
 		scan.setCacheBlocks(false);  // don't set to true for MR jobs
+		scan.setStartRow(startRow);
+		scan.setStopRow(stopRow);
 		// set other scan attrs
 		
 		//利用HBase提供的工具方法初始化任务对象
@@ -126,7 +132,7 @@ public class ImageProcessJobService {
 		return job;
 	}
 
-	public void searchImage(BufferedImage image, 
+	public void searchImage(BufferedImage image, int resultSize,
 			FeatureList outColorFeatureResult, FeatureList outEdgeFeatureResult) throws Exception {
 		
 		//提取待检索图像的颜色直翻图和边缘直方图特征
@@ -148,9 +154,9 @@ public class ImageProcessJobService {
 	    table.put(featuresPut);
 	    
 	    conf.set(ImageSearchJob.SEARCH_ROWID, rowId);
-	    
+	    conf.setInt("resultSize", resultSize);
 	    //配置检索任务
-		Job job = configureSearchJob(conf);
+		Job job = configureSearchJob(conf, Bytes.toBytes(START_ROW),  Bytes.toBytes(STOP_ROW));
 
 		//执行检索任务
 		boolean isSuccess = job.waitForCompletion(true);

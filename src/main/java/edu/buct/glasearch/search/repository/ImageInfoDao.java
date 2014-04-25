@@ -41,13 +41,32 @@ public class ImageInfoDao {
 
 	private ImageInformation rowToImage(Result result) {
 		ImageInformation image = new ImageInformation();
-		image.setId(new String(result.getRow()));
-		image.setTitle(new String(result.getValue(
-				ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.TITLE_COLUMN_BYTES)));
-		image.setLat(new String(result.getValue(
-				ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.LAT_COLUMN_BYTES)));
-		image.setLng(new String(result.getValue(
-				ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.LNG_COLUMN_BYTES)));
+		byte[] rowIdBytes = result.getRow();
+		if (rowIdBytes == null) return null;
+		
+		image.setId(new String(rowIdBytes));
+		
+		byte[] titleBytes = result.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.TITLE_COLUMN_BYTES);
+		if (titleBytes != null) {
+			image.setTitle(new String(titleBytes));
+		}
+		byte[] fileNameBytes = result.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.FILENAME_COLUMN_BYTES);
+		if (fileNameBytes != null) {
+			image.setFileName(new String(fileNameBytes));
+		}
+		
+		byte[] latBytes = result.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.LAT_COLUMN_BYTES);
+		if (latBytes != null) {
+			image.setLat(new String(latBytes));
+		}
+		byte[] lngBytes = result.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, ImageSearchJob.LNG_COLUMN_BYTES);
+		if (lngBytes != null) {
+			image.setLng(new String(lngBytes));
+		}
 		return image;
 	}
 }
