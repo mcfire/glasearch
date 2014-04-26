@@ -3,7 +3,10 @@ package edu.buct.glasearch.search.service;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.semanticmetadata.lire.AbstractImageSearcher;
 import net.semanticmetadata.lire.ImageDuplicates;
@@ -47,9 +50,43 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 			throw new IOException(e);
 		}
 		
-		List<SimpleResult> results = new ArrayList<SimpleResult>(outEdgeFeatureResult.getResult().size());
-		for (FeatureObject feature : outEdgeFeatureResult.getResult()) {
+		Map<String, FeatureObject> mergedResultMap = new HashMap<String, FeatureObject>();
+		List<FeatureObject> colorResult = outColorFeatureResult.getResult();
+		List<FeatureObject> edgeResult = outEdgeFeatureResult.getResult();
+		
+		float maxDistance = 0;
+		
+		if (colorResult.size() > 0) {
+			maxDistance = colorResult.get(colorResult.size() - 1).getDistance();
+		}
+		if (edgeResult.size() > 0) {
+			float distance = edgeResult.get(edgeResult.size() - 1).getDistance();
+			if (distance > maxDistance) maxDistance = distance;
+		}
+		
+		for (FeatureObject feature : colorResult) {
+			feature.setDistance(maxDistance - feature.getDistance());
 			
+			mergedResultMap.put(feature.getRowId(), feature);
+		}
+		
+		for (FeatureObject feature : outEdgeFeatureResult.getResult()) {
+			feature.setDistance(maxDistance - feature.getDistance());
+			
+			if (!mergedResultMap.containsKey(feature.getRowId())) {
+				mergedResultMap.put(feature.getRowId(), feature);
+			} else {
+				FeatureObject existFeature = mergedResultMap.get(feature.getRowId());
+				existFeature.setDistance(existFeature.getDistance() + feature.getDistance());
+			}
+		}
+		List<FeatureObject> mergedResultList = new ArrayList<FeatureObject>(mergedResultMap.size());
+		mergedResultList.addAll(mergedResultMap.values());
+		Collections.sort(mergedResultList, Collections.reverseOrder());
+		
+		List<SimpleResult> results = new ArrayList<SimpleResult>();
+		
+		for (FeatureObject feature : mergedResultList) {
 			ImageInformation imageInfo = imageInfoDao.getById(feature.getRowId());
 			Document doc = new Document();
 			DocumentUtils.appendImageInfoFields(doc, imageInfo);
