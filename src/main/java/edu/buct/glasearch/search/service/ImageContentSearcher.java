@@ -53,6 +53,7 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 		Map<String, FeatureObject> mergedResultMap = new HashMap<String, FeatureObject>();
 		List<FeatureObject> colorResult = outColorFeatureResult.getResult();
 		List<FeatureObject> edgeResult = outEdgeFeatureResult.getResult();
+		if (colorResult.size() == 0 || edgeResult.size() == 0) return null;
 		
 		float maxDistance = 0;
 		
@@ -86,15 +87,16 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 		
 		List<SimpleResult> results = new ArrayList<SimpleResult>();
 		
+		maxDistance = mergedResultList.get(0).getDistance();
 		for (FeatureObject feature : mergedResultList) {
 			ImageInformation imageInfo = imageInfoDao.getById(feature.getRowId());
 			Document doc = new Document();
 			DocumentUtils.appendImageInfoFields(doc, imageInfo);
 			
-			SimpleResult r = new SimpleResult(feature.getDistance(), doc, 0);
+			SimpleResult r = new SimpleResult(maxDistance - feature.getDistance(), doc, 0);
 			results.add(r);
 		}
-		ImageSearchHits hits = new SimpleImageSearchHits(results, 0);
+		ImageSearchHits hits = new SimpleImageSearchHits(results, maxDistance);
 		
 		return hits;
 	}
