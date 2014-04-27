@@ -53,7 +53,7 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 		Map<String, FeatureObject> mergedResultMap = new HashMap<String, FeatureObject>();
 		List<FeatureObject> colorResult = outColorFeatureResult.getResult();
 		List<FeatureObject> edgeResult = outEdgeFeatureResult.getResult();
-		if (colorResult.size() == 0 || edgeResult.size() == 0) return null;
+		if (colorResult.size() == 0 && edgeResult.size() == 0) return null;
 		
 		float maxDistance = 0;
 		

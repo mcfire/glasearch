@@ -14,8 +14,9 @@ import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.Filter;
+import org.apache.hadoop.hbase.filter.PageFilter;
 import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
-import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
@@ -95,7 +96,7 @@ public class ImageProcessJobService {
 	/**
 	 * Job configuration.
 	 */
-	private Job configureSearchJob(Configuration conf, byte[] startRow, byte[] stopRow)
+	private Job configureSearchJob(Configuration conf, byte[] startRow, byte[] stopRow, Long maxResultSize)
 			throws IOException {
 
 		//利用此工具方法将相关jar包加入Hadoop引用，否则需手工引用
@@ -113,6 +114,12 @@ public class ImageProcessJobService {
 		scan.setCacheBlocks(false);  // don't set to true for MR jobs
 		scan.setStartRow(startRow);
 		scan.setStopRow(stopRow);
+		
+		if (maxResultSize != null && maxResultSize > 0) {
+			Filter pageFilter = new PageFilter(maxResultSize);
+			scan.setFilter(pageFilter);
+		}
+		
 		// set other scan attrs
 		
 		//利用HBase提供的工具方法初始化任务对象
@@ -156,7 +163,8 @@ public class ImageProcessJobService {
 	    conf.set(ImageSearchJob.SEARCH_ROWID, rowId);
 	    conf.setInt("resultSize", resultSize);
 	    //配置检索任务
-		Job job = configureSearchJob(conf, Bytes.toBytes(START_ROW),  Bytes.toBytes(STOP_ROW));
+		//Job job = configureSearchJob(conf, Bytes.toBytes(START_ROW),  Bytes.toBytes(STOP_ROW));
+	    Job job = configureSearchJob(conf, null, null, 20000L);
 
 		//执行检索任务
 		boolean isSuccess = job.waitForCompletion(true);

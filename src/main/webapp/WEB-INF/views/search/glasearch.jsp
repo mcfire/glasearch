@@ -54,10 +54,11 @@
 			</div>
 			<c:if test="${fn:length(result) > 0 }">
 			<table id="contentTable" class="table table-striped table-bordered table-condensed">
-				<thead><tr><th>图像</th><th>相似距离</th><th>标题</th><th>标签<th>位置</th></tr></thead>
+				<thead><tr><th>ID</th><th>图像</th><th>相似距离</th><th>标题</th><th>标签<th>位置</th></tr></thead>
 				<tbody>
 				<c:forEach items="${result}" var="r">
 					<tr>
+						<td>${r.id}</td>
 						<td>
 							<a href="image?id=${r.id}" target="_blank" class="image-result">
 								<img alt="" src="image?id=${r.id}" >

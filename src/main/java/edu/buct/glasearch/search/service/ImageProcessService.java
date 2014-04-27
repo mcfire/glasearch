@@ -280,11 +280,11 @@ public class ImageProcessService {
 
 			ImageSearcher keyWordsSearcher = ImageSearcherFactory.
 					createKeyWordsSearcher(singleSeacherResultCount);
-			
+			keyWordsSearcher.setWeight(0.7f);
 			
 			ImageSearcher locationBasedSearcher = ImageSearcherFactory.
 					createLocationBasedSearcher(singleSeacherResultCount);
-			locationBasedSearcher.setWeight(0.8f);
+			locationBasedSearcher.setWeight(0.7f);
 
 			if (imageInfo.getBuffer() != null && imageInfo.getBuffer().length > 0) {
 				searchers.add(imageContentSearcher);
