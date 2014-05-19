@@ -22,6 +22,7 @@
 	  mapreduce.framework.name=${mr.fw}
 	  zk-quorum=${hbase.host}
 	  zk-port=${hbase.port}
+	  spark.address=${spark.address}
 	</hdp:configuration>
 
 <!-- 

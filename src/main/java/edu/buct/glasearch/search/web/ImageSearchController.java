@@ -1,8 +1,8 @@
 package edu.buct.glasearch.search.web;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -70,10 +70,13 @@ public class ImageSearchController {
 			@ModelAttribute ImageInformation imageInfo, 
 			Model model) throws IOException {
 		
+		Date startTime = new Date();
+		
 		imageInfo.setBuffer(file.getBytes());
 		List<ImageInformation> imageList = imageProcessService.search(imageInfo, method);
 		
 		model.addAttribute("result", imageList);
+		model.addAttribute("timeUsed", (new Date().getTime() - startTime.getTime()));
 		return "search/glasearch";
 	}
 

@@ -49,6 +49,9 @@
 					<option value="19">19</option>
 				</select>
 				 -->
+				 <c:if test="${timeUsed != null}">
+				 <label>Time used: ${timeUsed} ms</label>
+				 </c:if>
 				<input type="hidden" name="method" value="0" />
 				<input id="search-btn" class="btn btn-primary" type="submit" value="搜索图像"/>
 			</div>

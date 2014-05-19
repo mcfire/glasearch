@@ -2,13 +2,22 @@ package edu.buct.glasearch.search.service;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import net.semanticmetadata.lire.imageanalysis.EdgeHistogram;
 import net.semanticmetadata.lire.imageanalysis.LireFeature;
 import net.semanticmetadata.lire.imageanalysis.SimpleColorHistogram;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.CompatibilityFactory;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
@@ -16,37 +25,164 @@ import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.filter.Filter;
 import org.apache.hadoop.hbase.filter.PageFilter;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.JobUtil;
+import org.apache.hadoop.hbase.mapreduce.TableInputFormat;
 import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos;
+import org.apache.hadoop.hbase.thrift2.ThriftServer;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.hbase.util.vint.UVLongTool;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.spark.api.java.JavaPairRDD;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import scala.Tuple2;
+
 import com.google.gson.Gson;
+import com.google.protobuf.HBaseZeroCopyByteString;
+import com.google.protobuf.LazyStringArrayList;
 
 import edu.buct.glasearch.search.jobs.ImageIndexJob;
 import edu.buct.glasearch.search.jobs.ImageSearchJob;
 import edu.buct.glasearch.search.jobs.ImageSearchJob.FeatureList;
+import edu.buct.glasearch.search.jobs.ImageSearchJob.FeatureObject;
 import edu.buct.glasearch.search.jobs.ImageSearchJob.Map;
 import edu.buct.glasearch.search.jobs.ImageSearchJob.Reduce;
+import edu.buct.glasearch.search.jobs.SparkImageSearchJob;
 
 //Spring Bean的标识.
 @Component
 //默认将类中的所有public函数纳入事务管理.
 @Transactional
-public class ImageProcessJobService {
+public class ImageProcessJobService implements Serializable {
 	
 	private static Logger logger = LoggerFactory.getLogger(ImageProcessService.class);
+
+	Configuration conf;
+
+	double colorAvg, colorSigma, edgeAvg, edgeSigma;
 	
-	private static final String START_ROW = "39";
-	private static final String STOP_ROW = "39-393300";
+	JavaSparkContext ctx;
 	
 	@Autowired
-	Configuration conf;
+	public ImageProcessJobService(Configuration conf) {
+		this.conf = conf;
+		
+		try {
+			this.sparkSetup();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void sparkSetup() throws IOException {
+		
+		Set<String> jars = new HashSet<String>();
+
+		addToList(JavaSparkContext.jarOfClass(SparkImageSearchJob.class), jars);
+		addToList(JavaSparkContext.jarOfClass(SimpleColorHistogram.class), jars);
+
+		addToList(JavaSparkContext.jarOfClass(StringUtils.class), jars);
+		addToList(JavaSparkContext.jarOfClass(LogFactory.class), jars);
+		addToList(JavaSparkContext.jarOfClass(Configuration.class), jars);
+		addToList(JavaSparkContext.jarOfClass(HTable.class), jars);
+		addToList(JavaSparkContext.jarOfClass(TableInputFormat.class), jars);
+		addToList(JavaSparkContext.jarOfClass(HBaseConfiguration.class), jars);
+		addToList(JavaSparkContext.jarOfClass(HBaseProtos.class), jars);
+		addToList(JavaSparkContext.jarOfClass(JobUtil.class), jars);
+		addToList(JavaSparkContext.jarOfClass(CompatibilityFactory.class), jars);
+		addToList(JavaSparkContext.jarOfClass(UVLongTool.class), jars);
+		addToList(JavaSparkContext.jarOfClass(ThriftServer.class), jars);
+		addToList(JavaSparkContext.jarOfClass(org.cloudera.htrace.Trace.class), jars);
+		
+		addToList(JavaSparkContext.jarOfClass(HBaseZeroCopyByteString.class), jars);
+		addToList(JavaSparkContext.jarOfClass(LazyStringArrayList.class), jars);
+		
+		String masterAddress = conf.get("spark.address");
+		ctx = new JavaSparkContext(
+				masterAddress, 
+				"SparkSearchJob",
+				System.getenv("SPARK_HOME"),
+				jars.toArray(new String[jars.size()]));
+		
+		//从距离信息表中提取图像间距离的平均值和方差，用于距离的归一化。
+		HTable distanceTable = new HTable(conf, ImageSearchJob.imageDistanceTable);
+		Get colorDistanceGet = new Get(ImageSearchJob.COLOR_FEATURE_RESULT_COLUMN);
+		Result colorDistance = distanceTable.get(colorDistanceGet);
+		colorAvg = Bytes.toDouble(colorDistance.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, Bytes.toBytes("avg")));
+		colorSigma = Bytes.toDouble(colorDistance.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, Bytes.toBytes("sigma")));
+		
+		Get edgeDistanceGet = new Get(ImageSearchJob.EDGE_FEATURE_RESULT_COLUMN);
+		Result edgeDistance = distanceTable.get(edgeDistanceGet);
+		edgeAvg = Bytes.toDouble(edgeDistance.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, Bytes.toBytes("avg")));
+		edgeSigma = Bytes.toDouble(edgeDistance.getValue(
+				ImageSearchJob.COLUMN_FAMILY_BYTES, Bytes.toBytes("sigma")));
+		
+		distanceTable.close();
+		
+	}
+	
+	private void addToList(String[] array, Set<String> list) {
+		if (array == null || list == null) return;
+		for (String element : array) {
+			list.add(element);
+		}
+	}
+
+	public void searchBySpark(BufferedImage image, int resultSize,
+			FeatureList outColorFeatureResult, FeatureList outEdgeFeatureResult) throws IOException, InterruptedException {		
+		
+		Scan scan = new Scan();
+		scan.setCaching(500);        // 1 is the default in Scan, which will be bad for MapReduce jobs
+		scan.setCacheBlocks(false);  // don't set to true for MR jobs
+		
+		conf.set(TableInputFormat.INPUT_TABLE, ImageSearchJob.imageInfoTable);
+		// read data
+		JavaPairRDD<ImmutableBytesWritable, Result> hbaseData = ctx.newAPIHadoopRDD(conf, 
+				TableInputFormat.class, 
+				ImmutableBytesWritable.class, Result.class);
+		
+		LireFeature colorFeature = new SimpleColorHistogram();
+		colorFeature.extract(image);
+		LireFeature edgeFeature = new EdgeHistogram();
+		edgeFeature.extract(image);
+		
+		SparkImageSearchJob.Map map = new SparkImageSearchJob.Map();
+		map.setup(colorFeature, edgeFeature, colorAvg, colorSigma, edgeAvg, edgeSigma, conf);
+		
+		JavaPairRDD<Double, FeatureObject> colorRdd = hbaseData.flatMap(map);
+		JavaPairRDD<Double, FeatureObject> edgeRdd = colorRdd.cache();
+		
+		List<Tuple2<Double, FeatureObject>> colorResult = colorRdd.
+				filter(new SparkImageSearchJob.FeatureFilter(FeatureObject.FeatureType.color)).
+				sortByKey(true).take(resultSize);
+		
+		List<Tuple2<Double, FeatureObject>> edgeResult = edgeRdd.
+				filter(new SparkImageSearchJob.FeatureFilter(FeatureObject.FeatureType.edge)).
+				sortByKey(true).take(resultSize);
+
+		List<FeatureObject> colorResultList = new ArrayList<FeatureObject>();
+		outColorFeatureResult.setResult(colorResultList);
+		for (Tuple2<Double, FeatureObject> t : colorResult) {
+			colorResultList.add(t._2);
+		}
+		List<FeatureObject> edgeResultList = new ArrayList<FeatureObject>();
+		outEdgeFeatureResult.setResult(edgeResultList);
+		for (Tuple2<Double, FeatureObject> t : edgeResult) {
+			edgeResultList.add(t._2);
+		}
+	}
 
 	/**
 	 * Job configuration.
@@ -164,7 +300,7 @@ public class ImageProcessJobService {
 	    conf.setInt("resultSize", resultSize);
 	    //配置检索任务
 		//Job job = configureSearchJob(conf, Bytes.toBytes(START_ROW),  Bytes.toBytes(STOP_ROW));
-	    Job job = configureSearchJob(conf, null, null, 20000L);
+	    Job job = configureSearchJob(conf, null, null, null);
 
 		//执行检索任务
 		boolean isSuccess = job.waitForCompletion(true);

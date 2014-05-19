@@ -45,7 +45,11 @@ public class ImageContentSearcher extends AbstractImageSearcher {
 		FeatureList outEdgeFeatureResult = new FeatureList();
 		
 		try {
-			imageProcessJobService.searchImage(image, resultCount, outColorFeatureResult, outEdgeFeatureResult);
+			//TODO switch search method
+//			imageProcessJobService.searchImage(image, resultCount, 
+//					outColorFeatureResult, outEdgeFeatureResult);
+			imageProcessJobService.searchBySpark(image, resultCount, 
+					outColorFeatureResult, outEdgeFeatureResult);
 		} catch (Exception e) {
 			throw new IOException(e);
 		}
